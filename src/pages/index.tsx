@@ -1,10 +1,12 @@
-import Image from "next/image";
+import RootLayout from "@/components/Layout";
+
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24`}
-    >
-    </main>
+    <RootLayout>
+      <div>
+        <h1>Create Link</h1>
+      </div>
+    </RootLayout>
   );
 }
