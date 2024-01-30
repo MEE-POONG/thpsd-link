@@ -1,5 +1,4 @@
-import RootLayout from "@/components/Layout";
-
+import RootLayout from '@/components/Layout';
 
 export default function Home() {
   return (
