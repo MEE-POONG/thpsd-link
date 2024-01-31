@@ -7,6 +7,7 @@ const TheNavbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const checkPath = router.pathname;
+  console.log("checkPath : ", checkPath);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -57,7 +58,7 @@ const TheNavbar: React.FC = () => {
                     href={item.href}
                     className={`text-white hover:underline px-3 py-2 rounded-md text-sm font-bold ${checkPath === item.href ? 'font-bold' : ''}`}
                   >
-                    {item.name}
+                    {item.name} {item.href === checkPath ? "a" : "b"}
                   </Link>
                 ))}
                 {/* More links */}
