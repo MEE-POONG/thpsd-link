@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import TheNavbar from './TheNavbar'
 
 
 
@@ -13,8 +14,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className={`flex min-h-screen flex-col items-center justify-between p-24 `}>
-      {children}
-    </div>
+    <>
+      <TheNavbar />
+      <div className={`flex min-h-screen flex-col items-center justify-between p-24 `}>
+        {children}
+      </div>
+    </>
   )
 }
