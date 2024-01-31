@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import TheNavbar from './TheNavbar'
+import { Kanit } from 'next/font/google'
 
-
+const kanit = Kanit({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +20,7 @@ export default function RootLayout({
   return (
     <>
       <TheNavbar />
-      <div className={`flex min-h-screen flex-col items-center justify-between p-24 `}>
+      <div className={`flex min-h-screen flex-col items-center justify-between p-24 ${kanit.className} `}>
         {children}
       </div>
     </>
