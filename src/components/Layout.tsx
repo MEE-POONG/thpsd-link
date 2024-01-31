@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <>
       <TheNavbar />
-      <div className={`flex min-h-screen flex-col items-center justify-between p-24 ${kanit.className} `}>
+      <div className={`${kanit.className} `}>
         {children}
       </div>
     </>
