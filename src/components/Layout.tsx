@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import TheNavbar from './TheNavbar'
 import { Kanit } from 'next/font/google'
 
 const kanit = Kanit({
@@ -17,8 +18,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className={`flex min-h-screen flex-col items-center justify-between p-3 md:p-24 ${kanit.className} `}>
-      {children}
-    </div>
+    <>
+      <TheNavbar />
+      <div className={`flex min-h-screen flex-col items-center justify-between p-24 ${kanit.className} `}>
+        {children}
+      </div>
+    </>
   )
 }
