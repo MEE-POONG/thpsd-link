@@ -1,6 +1,7 @@
 import RootLayout from "@/components/Layout";
 import Link from "next/link";
 import React from "react";
+import { FaCheckCircle } from "react-icons/fa";
 
 const PricingPage = () => {
     return (
@@ -13,9 +14,10 @@ const PricingPage = () => {
 
                 {/* Card */}
                 <div className="flex flex-wrap justify-center gap-5">
+                    {/* card1 */}
                     <div className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
                         <p className="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
-                            Entreprise
+                            Free
                         </p>
                         <p className="text-3xl font-bold text-gray-900 dark:text-white">
                             $0
@@ -23,29 +25,20 @@ const PricingPage = () => {
                                 / month
                             </span>
                         </p>
-                        <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
-                            For most businesses that want to optimize web queries.
-                        </p>
+                        {/* <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
+                            For individuals who want to increase their search channels.
+                        </p> */}
                         <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 All illimited components
                             </li>
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 Own custom Tailwind styles
                             </li>
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 Unlimited Templates
                             </li>
                         </ul>
@@ -53,40 +46,29 @@ const PricingPage = () => {
                             Choose plan
                         </button>
                     </div>
+                    {/* card2 */}
+                    <div className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
+                        <p className="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
+                            Core
+                        </p>
+                        <p className="text-3xl font-bold text-gray-900 dark:text-white">
+                            $0
+                            <span className="text-sm text-gray-300">
+                                / month
+                            </span>
+                        </p>
 
-                    <div className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
-                        <p className="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
-                            Entreprise
-                        </p>
-                        <p className="text-3xl font-bold text-gray-900 dark:text-white">
-                            $0
-                            <span className="text-sm text-gray-300">
-                                / month
-                            </span>
-                        </p>
-                        <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
-                            For most businesses that want to optimize web queries.
-                        </p>
                         <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 All illimited components
                             </li>
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 Own custom Tailwind styles
                             </li>
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 Unlimited Templates
                             </li>
                         </ul>
@@ -94,9 +76,10 @@ const PricingPage = () => {
                             Choose plan
                         </button>
                     </div>
+                    {/* card3 */}
                     <div className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
                         <p className="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
-                            Entreprise
+                            Growth
                         </p>
                         <p className="text-3xl font-bold text-gray-900 dark:text-white">
                             $0
@@ -104,29 +87,18 @@ const PricingPage = () => {
                                 / month
                             </span>
                         </p>
-                        <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
-                            For most businesses that want to optimize web queries.
-                        </p>
+
                         <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 All illimited components
                             </li>
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 Own custom Tailwind styles
                             </li>
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 Unlimited Templates
                             </li>
                         </ul>
@@ -134,9 +106,10 @@ const PricingPage = () => {
                             Choose plan
                         </button>
                     </div>
+                    {/* card4 */}
                     <div className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
                         <p className="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
-                            Entreprise
+                            Premium
                         </p>
                         <p className="text-3xl font-bold text-gray-900 dark:text-white">
                             $0
@@ -144,29 +117,18 @@ const PricingPage = () => {
                                 / month
                             </span>
                         </p>
-                        <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
-                            For most businesses that want to optimize web queries.
-                        </p>
+
                         <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 All illimited components
                             </li>
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 Own custom Tailwind styles
                             </li>
-                            <li className="mb-3 flex items-center ">
-                                <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="6" height="6" stroke="currentColor" fill="#10b981" viewBox="0 0 1792 1792">
-                                    <path d="M1412 734q0-28-18-46l-91-90q-19-19-45-19t-45 19l-408 407-226-226q-19-19-45-19t-45 19l-91 90q-18 18-18 46 0 27 18 45l362 362q19 19 45 19 27 0 46-19l543-543q18-18 18-45zm252 162q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z">
-                                    </path>
-                                </svg>
+                            <li className="mb-3 flex items-center gap-2 ">
+                                <FaCheckCircle />
                                 Unlimited Templates
                             </li>
                         </ul>
