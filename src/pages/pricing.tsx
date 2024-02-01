@@ -1,4 +1,4 @@
-import RootLayout from "@/components/Layout";
+import RootLayout from "@/components/RootLayout";
 import Link from "next/link";
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
