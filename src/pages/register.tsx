@@ -6,7 +6,7 @@ const Login: React.FC = () => {
         <RootLayout>
             <div className="container mx-auto py-24">
                 <div className="w-[300px] md:w-80 p-9 bg-white shadow-lg rounded-2xl border m-auto">
-                    <p className="text-xl font-black mb-5">Login to your account</p>
+                    <p className="text-xl font-black mb-5">Create your account</p>
                     <div className="my-7">
                         <p className="text-sm">Username</p>
                         <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter User" />
@@ -15,7 +15,7 @@ const Login: React.FC = () => {
                         <input type="text" className="w-full border-b p-1.5 text-base focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Password" />
                     </div>
                     <button className="py-2 px-4 bg-black hover:bg-white hover:text-black hover:border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-sm font-semibold shadow-md rounded-lg mb-3">
-                        Login
+                        Create Account
                     </button>
 
                     <Link href='' className="text-sm hover:underline ">Forgot password?</Link>
@@ -29,8 +29,8 @@ const Login: React.FC = () => {
                     </Link>
 
                     <p className="text-sm leading-relaxed text-grey-900 mt-5">
-                        Not registered yet?
-                        <Link href='./register' className="font-bold text-gray-700 hover:underline ml-2">Create an Account</Link>
+                        Already have an acconut
+                        <Link href='./register' className="font-bold text-gray-700 hover:underline ml-2">Login</Link>
                     </p>
                 </div>
 
