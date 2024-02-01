@@ -32,11 +32,6 @@ const TitleHead: React.FC = () => {
           <img src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="hero image" />
         </div>
       </div>
-
-      <div className="grid grid-rows-4 grid-flow-col gap-4">
-        <div>01</div>
-        <div>09</div>
-      </div>
     </section>
 
   )
