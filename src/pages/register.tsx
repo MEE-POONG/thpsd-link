@@ -30,7 +30,7 @@ const Login: React.FC = () => {
 
                     <p className="text-sm leading-relaxed text-grey-900 mt-5">
                         Already have an acconut
-                        <Link href='./register' className="font-bold text-gray-700 hover:underline ml-2">Login</Link>
+                        <Link href='./login' className="font-bold text-gray-700 hover:underline ml-2">Login</Link>
                     </p>
                 </div>
 
