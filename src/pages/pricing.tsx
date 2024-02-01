@@ -79,7 +79,7 @@ const PricingPage = () => {
                         </button>
                     </div>
                     {/* card3 */}
-                    <div className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
+                    <div className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800 ">
                         <p className="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
                             Growth
                         </p>
