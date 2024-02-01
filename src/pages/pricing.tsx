@@ -20,22 +20,22 @@ const PricingPage = () => {
                             Free
                         </p>
                         <p className="text-3xl font-bold text-gray-900 dark:text-white">
-                            $0
+                            ฿0
                             <span className="text-sm text-gray-300">
-                                / month
+                                / เดือน
                             </span>
                         </p>
-                        {/* <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
-                            For individuals who want to increase their search channels.
-                        </p> */}
+                        <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
+                            Best option for personal use & for your next project.
+                        </p>
                         <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
-                                All illimited components
+                                20 ลิงค์/เดือน
                             </li>
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
-                                Own custom Tailwind styles
+                                3 QR Code/เดือน
                             </li>
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
@@ -52,20 +52,22 @@ const PricingPage = () => {
                             Core
                         </p>
                         <p className="text-3xl font-bold text-gray-900 dark:text-white">
-                            $0
+                            ฿299
                             <span className="text-sm text-gray-300">
-                                / month
+                                / เดือน
                             </span>
                         </p>
-
+                        <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
+                            Best option for personal use & for your next project.
+                        </p>
                         <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
-                                All illimited components
+                                30 ลิงค์/เดือน
                             </li>
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
-                                Own custom Tailwind styles
+                                10 QR Codes/เดือน
                             </li>
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
@@ -82,20 +84,22 @@ const PricingPage = () => {
                             Growth
                         </p>
                         <p className="text-3xl font-bold text-gray-900 dark:text-white">
-                            $0
+                            ฿999
                             <span className="text-sm text-gray-300">
-                                / month
+                                / เดือน
                             </span>
                         </p>
-
+                        <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
+                            Relevant for multiple users, extended & premium support.
+                        </p>
                         <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
-                                All illimited components
+                                2,000 ลิงค์/เดือน
                             </li>
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
-                                Own custom Tailwind styles
+                                50 QR Codes/เดือน
                             </li>
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
@@ -112,20 +116,22 @@ const PricingPage = () => {
                             Premium
                         </p>
                         <p className="text-3xl font-bold text-gray-900 dark:text-white">
-                            $0
+                            ฿7000
                             <span className="text-sm text-gray-300">
                                 / month
                             </span>
                         </p>
-
+                        <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
+                            Best for large scale uses and extended redistribution rights.
+                        </p>
                         <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
-                                All illimited components
+                                5,000 ลิงค์/เดือน
                             </li>
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
-                                Own custom Tailwind styles
+                                100 QR Codes/เดือน
                             </li>
                             <li className="mb-3 flex items-center gap-2 ">
                                 <FaCheckCircle />
