@@ -177,23 +177,7 @@ const Questions: React.FC = () => {
                 <img src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="" className="hidden w-full h-52 object-cover rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2 lg:h-32" loading="lazy" />
                 <img src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="" className="hidden w-full h-52 object-cover rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-32" loading="lazy" />
             </div>
-            <div className="flex ...">
-                <div className="grow h-14 ...">
-                    01
-                </div>
-                <div className="grow-0 h-14 ...">
-                    02
-                </div>
-                <div className="grow h-14 ...">
-                    03
-                </div>
-                <div className="grid grid-cols-8 gap-4">
-                    <div>08</div>
-                </div>
-                <div className="grid grid-cols-4 gap-4">
-                    <div>09</div>
-                </div>
-            </div>
+       
 
         </section>
 

@@ -11,7 +11,7 @@ const PricingPage = () => {
                     <img width="35" height="35" src="https://img.icons8.com/office/30/price-tag.png" alt="price-tag" />
                     <h1 className="font-bold text-3xl">Pricing Rates </h1>
                 </div>
-
+      
                 {/* Card */}
                 <div className="flex flex-wrap justify-center gap-5">
                     {/* card1 */}
@@ -143,10 +143,6 @@ const PricingPage = () => {
                         </button>
                     </div>
                 </div>
-
-
-
-
             </div>
         </RootLayout>
     )
