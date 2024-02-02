@@ -43,7 +43,7 @@ const PricingPage = () => {
                             </li>
                         </ul>
                         <button type="button" className="py-2 px-4 bg-black hover:bg-white hover:text-black hover:border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
-                            Choose plan
+                            <Link href='./payment'>  เลือกแผนนี้</Link>
                         </button>
                     </div>
                     {/* card2 */}
@@ -75,7 +75,7 @@ const PricingPage = () => {
                             </li>
                         </ul>
                         <button type="button" className="py-2 px-4 bg-black hover:bg-white hover:text-black hover:border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg">
-                            Choose plan
+                            <Link href=''>เลือกแผนนี้</Link>
                         </button>
                     </div>
                     {/* card3 */}
@@ -107,7 +107,7 @@ const PricingPage = () => {
                             </li>
                         </ul>
                         <button type="button" className="py-2 px-4 bg-black hover:bg-white hover:text-black hover:border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg">
-                            Choose plan
+                            <Link href=''>เลือกแผนนี้</Link>
                         </button>
                     </div>
                     {/* card4 */}
@@ -139,7 +139,7 @@ const PricingPage = () => {
                             </li>
                         </ul>
                         <button type="button" className="py-2 px-4 bg-black hover:bg-white hover:text-black hover:border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg">
-                            Choose plan
+                            <Link href=''>เลือกแผนนี้</Link>
                         </button>
                     </div>
                 </div>
