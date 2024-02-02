@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-
+type QuestionsItem = {
+    id: number;
+    title: string;
+    content: string;
+};
+const QuestionsData: QuestionsItem[] = [
+    {
+        id: 1,
+        title: 'Can I use Landwind in open-source projects?',
+        content: 'Landwind is an open-source library...',
+    },
+    {
+        id: 2,
+        title: 'Is there a Figma file available?',
+        content: 'Landwind is first conceptualized and designed using Figma...',
+    },
+    // ... add more items as needed
+];
 const Questions: React.FC = () => {
+    const [openItem, setOpenItem] = useState<number | null>(null);
+
+    const toggleItem = (id: number) => {
+        setOpenItem(openItem === id ? null : id);
+    };
     return (
         <section className="bg-white dark:bg-gray-900">
             <div className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-24 lg:px-6 ">
@@ -13,172 +35,41 @@ const Questions: React.FC = () => {
                     <div id="accordion-flush" data-accordion="collapse"
                         data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
                         data-inactive-classes="text-gray-500 dark:text-gray-400">
-                        <h3 id="accordion-flush-heading-1">
-                            <button type="button"
-                                className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
-                                data-accordion-target="#accordion-flush-body-1" aria-expanded="true"
-                                aria-controls="accordion-flush-body-1"> <span>Can I use Landwind in open-source projects?
-                                </span>
-                                <svg data-accordion-icon="" className="w-6 h-6 rotate-180 shrink-0" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fillRule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clipRule="evenodd">
-                                    </path>
-                                </svg>
-                            </button>
-                        </h3>
-                        <div id="accordion-flush-body-1" className="" aria-labelledby="accordion-flush-heading-1">
-                            <div className="py-5 border-b border-gray-200 dark:border-gray-700">
-                                <p className="mb-2 text-gray-500 dark:text-gray-400">
-                                    Landwind is an open-source library of
-                                    interactive components built on top of Tailwind CSS including buttons, dropdowns,
-                                    modals, navbars, and more.
-                                </p>
-                                <p className="text-gray-500 dark:text-gray-400">
-                                    Check out this guide to learn how to <a href="#"
-                                        className="text-purple-600 dark:text-purple-500 hover:underline">
-                                        get started
-                                    </a> and
-                                    start developing websites even faster with components on top of Tailwind CSS.
-                                </p>
+                        {QuestionsData.map((item) => (
+                            <div key={item.id} className="pt-5">
+                                <button
+                                    onClick={() => toggleItem(item.id)}
+                                    className="flex justify-between w-full py-5 font-medium text-left text-gray-500 dark:text-gray-400 focus:outline-none"
+                                    aria-expanded={openItem === item.id}
+                                >
+                                    <span>{item.title}</span>
+                                    <svg
+                                        className={`w-6 h-6 transition-transform ${openItem === item.id ? 'transform rotate-180' : ''
+                                            }`}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M19 9l-7 7-7-7"
+                                        />
+                                    </svg>
+                                </button>
+                                <div
+                                    className={`overflow-hidden transition-height duration-300 ${openItem === item.id ? 'h-auto' : 'h-0'
+                                        }`}
+                                >
+                                    <p className="py-5 text-gray-500 dark:text-gray-400">{item.content}</p>
+                                </div>
                             </div>
-                        </div>
-                        <h3 id="accordion-flush-heading-2">
-                            <button type="button"
-                                className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                                data-accordion-target="#accordion-flush-body-2" aria-expanded="false"
-                                aria-controls="accordion-flush-body-2"> <span>Is there a Figma file available?
-                                </span>
-                                <svg data-accordion-icon="" className="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fillRule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clipRule="evenodd">
-                                    </path>
-                                </svg>
-                            </button>
-                        </h3>
-                        <div id="accordion-flush-body-2" className="hidden" aria-labelledby="accordion-flush-heading-2">
-                            <div className="py-5 border-b border-gray-200 dark:border-gray-700">
-                                <p className="mb-2 text-gray-500 dark:text-gray-400">
-                                    Landwind is first conceptualized and
-                                    designed using the Figma software so everything you see in the library has a design
-                                    equivalent in our Figma file.
-                                </p>
-                                <p className="text-gray-500 dark:text-gray-400">
-                                    Check out the <a href="#" className="text-purple-600 dark:text-purple-500 hover:underline">
-                                        Figma design system
-                                    </a>
-                                    based on the utility classes from Tailwind CSS and components from Landwind.
-                                </p>
-                            </div>
-                        </div>
-                        <h3 id="accordion-flush-heading-3">
-                            <button type="button"
-                                className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                                data-accordion-target="#accordion-flush-body-3" aria-expanded="false"
-                                aria-controls="accordion-flush-body-3"> <span>What are the differences between Landwind and
-                                    Tailwind UI?
-                                </span>
-                                <svg data-accordion-icon="" className="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fillRule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clipRule="evenodd">
-                                    </path>
-                                </svg>
-                            </button>
-                        </h3>
-                        <div id="accordion-flush-body-3" className="hidden" aria-labelledby="accordion-flush-heading-3">
-                            <div className="py-5 border-b border-gray-200 dark:border-gray-700">
-                                <p className="mb-2 text-gray-500 dark:text-gray-400">
-                                    The main difference is that the core
-                                    components from Landwind are open source under the MIT license, whereas Tailwind UI is a
-                                    paid product. Another difference is that Landwind relies on smaller and standalone
-                                    components, whereas Tailwind UI offers sections of pages.
-                                </p>
-                                <p className="mb-2 text-gray-500 dark:text-gray-400">
-                                    However, we actually recommend using both
-                                    Landwind, Landwind Pro, and even Tailwind UI as there is no technical reason stopping
-                                    you from using the best of two worlds.
-                                </p>
-                                <p className="mb-2 text-gray-500 dark:text-gray-400">
-                                    Learn more about these technologies:
-                                </p>
-                                <ul className="pl-5 text-gray-500 list-disc dark:text-gray-400">
-                                    <li>
-                                        <a href="#" className="text-purple-600 dark:text-purple-500 hover:underline">
-                                            Landwind
-                                            Pro
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="text-purple-600 dark:text-purple-500 hover:underline">
-                                            Tailwind
-                                            UI
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <h3 id="accordion-flush-heading-4">
-                            <button type="button"
-                                className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                                data-accordion-target="#accordion-flush-body-4" aria-expanded="false"
-                                aria-controls="accordion-flush-body-4"> <span>What about browser support?
-                                </span>
-                                <svg data-accordion-icon="" className="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fillRule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clipRule="evenodd">
-                                    </path>
-                                </svg>
-                            </button>
-                        </h3>
-                        <div id="accordion-flush-body-4" className="hidden" aria-labelledby="accordion-flush-heading-4">
-                            <div className="py-5 border-b border-gray-200 dark:border-gray-700">
-                                <p className="mb-2 text-gray-500 dark:text-gray-400">
-                                    The main difference is that the core
-                                    components from Landwind are open source under the MIT license, whereas Tailwind UI is a
-                                    paid product. Another difference is that Landwind relies on smaller and standalone
-                                    components, whereas Tailwind UI offers sections of pages.
-                                </p>
-                                <p className="mb-2 text-gray-500 dark:text-gray-400">
-                                    However, we actually recommend using both
-                                    Landwind, Landwind Pro, and even Tailwind UI as there is no technical reason stopping
-                                    you from using the best of two worlds.
-                                </p>
-                                <p className="mb-2 text-gray-500 dark:text-gray-400">
-                                    Learn more about these technologies:
-                                </p>
-                                <ul className="pl-5 text-gray-500 list-disc dark:text-gray-400">
-                                    <li>
-                                        <a href="#" className="text-purple-600 dark:text-purple-500 hover:underline">
-                                            Landwind
-                                            Pro
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="text-purple-600 dark:text-purple-500 hover:underline">
-                                            Tailwind
-                                            UI
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
-            <div className="grid gap-4 col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
-                <img src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="" className="w-full object-cover rounded-lg sm:h-52 sm:col-span-2 lg:col-span-full" loading="lazy" />
-                <img src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="" className="hidden w-full h-52 object-cover rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2 lg:h-32" loading="lazy" />
-                <img src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="" className="hidden w-full h-52 object-cover rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-32" loading="lazy" />
-            </div>
-       
-
         </section>
 
 
