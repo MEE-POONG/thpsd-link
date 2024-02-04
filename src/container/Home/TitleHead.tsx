@@ -29,7 +29,7 @@ const TitleHead: React.FC = () => {
           </div>
         </div>
         <div className="lg:mt-0 lg:col-span-5 lg:flex hidden">
-          <img className='w-full ' src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="hero image" />
+          <img className='w-full ' src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/500" alt="hero image" />
         </div>
       </div>
     </section>

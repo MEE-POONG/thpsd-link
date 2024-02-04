@@ -1,26 +1,9 @@
 import React, { useState } from 'react';
+import { QuestionsData } from '@/data/default';
+import { FaChevronDown } from 'react-icons/fa';
 
-type QuestionsItem = {
-    id: number;
-    title: string;
-    content: string;
-};
-const QuestionsData: QuestionsItem[] = [
-    {
-        id: 1,
-        title: 'Can I use Landwind in open-source projects?',
-        content: 'Landwind is an open-source library...',
-    },
-    {
-        id: 2,
-        title: 'Is there a Figma file available?',
-        content: 'Landwind is first conceptualized and designed using Figma...',
-    },
-    // ... add more items as needed
-];
 const Questions: React.FC = () => {
     const [openItem, setOpenItem] = useState<number | null>(null);
-
     const toggleItem = (id: number) => {
         setOpenItem(openItem === id ? null : id);
     };
@@ -43,27 +26,10 @@ const Questions: React.FC = () => {
                                     aria-expanded={openItem === item.id}
                                 >
                                     <span>{item.title}</span>
-                                    <svg
-                                        className={`w-6 h-6 transition-transform ${openItem === item.id ? 'transform rotate-180' : ''
-                                            }`}
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M19 9l-7 7-7-7"
-                                        />
-                                    </svg>
+                                    <FaChevronDown className={`w-6 h-6 transition-transform ${openItem === item.id ? 'transform rotate-180' : ''}`} />
                                 </button>
-                                <div
-                                    className={`overflow-hidden transition-height duration-300 ${openItem === item.id ? 'h-auto' : 'h-0'
-                                        }`}
-                                >
-                                    <p className="py-5 text-gray-500 dark:text-gray-400">{item.content}</p>
+                                <div className={`overflow-hidden transition-max-height duration-300 ease-in-out ${openItem === item.id ? 'h-auto' : 'h-0'}`}>
+                                    <div dangerouslySetInnerHTML={{ __html: item.content }} />
                                 </div>
                             </div>
                         ))}
