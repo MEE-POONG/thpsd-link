@@ -22,13 +22,10 @@ const ShortenLink: React.FC<LinkShortenerProps> = () => {
             <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
                 <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
                     <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                        Designed for
-                        business teams like yours
+                       สร้างลิงค์ URL ของคุณ
                     </h2>
                     <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-                        Here at Landwind we focus on
-                        markets where technology, innovation, and capital can unlock long-term value and drive economic
-                        growth.
+                        ง่าย รวดเร็ว ปลอดภัย ใช้ได้นาน
                     </p>
                 </div>
                 {/* <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"> */}
@@ -43,8 +40,7 @@ const ShortenLink: React.FC<LinkShortenerProps> = () => {
                     </div>
                     <a href="#"
                         className="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900">
-                        Get
-                        started
+                        Short URLs
                     </a>
                     <div className="mb-8 mt-12">
                         <label htmlFor="domain" className="block text-lg font-medium text-gray-700">Domain</label>
@@ -53,7 +49,7 @@ const ShortenLink: React.FC<LinkShortenerProps> = () => {
                             <input
                                 type="text"
                                 id="domain"
-                                className="flex-1 block border-2 w-full text-lg rounded-none border-gray-300 focus:border-gray-300 focus:outline-none hover:border-gray-300 bg-gray-50 text-gray-500"
+                                className="flex-1 block border-2 w-full text-lg rounded-none border-gray-300 focus:border-gray-300 focus:outline-none hover:border-gray-300 bg-gray-50 text-gray-500 placeholder:text-sm p-1"
                                 placeholder="Enter a back-half (optional)"
                                 value={backHalf}
                                 onChange={(e) => setBackHalf(e.target.value)}
