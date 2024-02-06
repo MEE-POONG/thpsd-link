@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
-const PricingPage = () => {
+const PricingPage: React.FC = () => {
     return (
         <RootLayout>
             <div className='container mx-auto p-5 lg:p-24 drop-shadow-xl'>

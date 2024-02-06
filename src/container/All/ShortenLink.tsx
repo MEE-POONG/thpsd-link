@@ -8,15 +8,9 @@ type LinkShortenerProps = {
 
 
 const ShortenLink: React.FC<LinkShortenerProps> = () => {
-    const [longUrl, setLongUrl] = useState('');
     const [backHalf, setBackHalf] = useState('');
 
-    // Handle your form submission logic here
-    const handleSubmit = (event: FormEvent) => {
-        event.preventDefault();
-        // Implement your URL shortening logic
-        // Use 'longUrl' and 'backHalf' as needed
-    };
+ 
     return (
         <section className="bg-white dark:bg-gray-900">
             <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
@@ -31,11 +25,11 @@ const ShortenLink: React.FC<LinkShortenerProps> = () => {
                 {/* <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"> */}
                 <div className="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                     <div className="sm:col-span-4 text-left">
-                        <label htmlFor="username" className="block text-lg font-medium leading-6 text-gray-900">
+                        <label htmlFor="username" className="block text-base md:text-lg font-medium leading-6 text-gray-900">
                             Paste a long URL
                         </label>
                         <div className="mt-2">
-                            <input type="text" className="w-full border-b p-1.5 text-lg mb-5 focus:outline-none placeholder:italic placeholder:text-md" placeholder="Example: http://super-long-link.com/shorten-it" />
+                            <input type="text" className="w-full border-b p-1.5 text-base md:text-lg mb-5 focus:outline-none placeholder:italic placeholder:text-md" placeholder="Example: http://super-long-link.com/shorten-it" />
                         </div>
                     </div>
                     <a href="#"
@@ -43,13 +37,13 @@ const ShortenLink: React.FC<LinkShortenerProps> = () => {
                         Short URLs
                     </a>
                     <div className="mb-8 mt-12">
-                        <label htmlFor="domain" className="block text-lg font-medium text-gray-700">Domain</label>
-                        <div className="mt-1 flex rounded-md shadow-sm text-lg">
+                        <label htmlFor="domain" className="block text-base md:text-lg font-medium text-gray-700">Domain</label>
+                        <div className="mt-1 flex rounded-md shadow-sm text-base md:text-lg">
                             <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 ">thpsd.com</span>
                             <input
                                 type="text"
                                 id="domain"
-                                className="flex-1 block border-2 w-full text-lg rounded-none border-gray-300 focus:border-gray-300 focus:outline-none hover:border-gray-300 bg-gray-50 text-gray-500 placeholder:text-sm p-1"
+                                className="flex-1 block border-2 w-full text-base md:text-lg rounded-none border-gray-300 focus:border-gray-300 focus:outline-none hover:border-gray-300 bg-gray-50 text-gray-500"
                                 placeholder="Enter a back-half (optional)"
                                 value={backHalf}
                                 onChange={(e) => setBackHalf(e.target.value)}
@@ -69,7 +63,7 @@ const ShortenLink: React.FC<LinkShortenerProps> = () => {
                         <h2 className="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">
                             Start your free trial today
                         </h2>
-                        <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">
+                        <p className="mb-6 font-light text-gray-500 dark:text-gray-400 text-base md:text-lg">
                             Try Landwind Platform for 30
                             days. No credit card required.
                         </p>
