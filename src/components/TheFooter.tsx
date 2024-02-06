@@ -16,7 +16,7 @@ const TheFooter: React.FC = () => {
   return (
     <footer className="bg-white dark:bg-gray-800">
       <div className="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+        {/* <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
           <div>
             <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
               Company
@@ -148,14 +148,13 @@ const TheFooter: React.FC = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="text-center">
           <Link href="#"
             className="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white">
             <img src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" className="h-6 mr-3 sm:h-9" alt="Landwind Logo" />
             TH Psd
-
           </Link>
           <span className="block text-sm text-center text-gray-500 dark:text-gray-400">
             © 2021-2022 TH Psd™. All
