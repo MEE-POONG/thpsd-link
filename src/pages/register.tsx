@@ -10,14 +10,14 @@ const Login: React.FC = () => {
                     <div className="my-7">
                         <p className="text-sm">Username</p>
                         <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter User" />
-
                         <p className="text-sm">Password</p>
-                        <input type="text" className="w-full border-b p-1.5 text-base focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Password" />
+                        <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Password" />
+                        <p className="text-sm">Confirm-Password</p>
+                        <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Password" />
                     </div>
-                    <button className="py-2 px-4 bg-black hover:bg-white hover:text-black hover:border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-sm font-semibold shadow-md rounded-lg mb-3">
+                    <button className="py-2 px-4 bg-black hover:bg-white hover:text-black border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-sm font-semibold shadow-md rounded-lg mb-3">
                         Create Account
                     </button>
-
                     <Link href='' className="text-sm hover:underline ">Forgot password?</Link>
 
                     <div className="flex items-center justify-center border-t-[1px] border-t-slate-300 w-full relative mt-7">
