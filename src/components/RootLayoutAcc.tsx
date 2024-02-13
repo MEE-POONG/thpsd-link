@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import TheNavbarAcc from './TheNavbarAcc'
 import { Kanit } from 'next/font/google'
 import TheSlidebar from './TheSlidebar';
+import TheTestbar from './TheTestbar';
 // import TheFooter from './TheFooter';
 
 const kanit = Kanit({
@@ -24,6 +25,7 @@ const RootLayoutAccount: React.FC<LayoutProps> = ({ children }) => {
     // style="{'overflow-hidden': isSideMenuOpen }"
     >
       <TheSlidebar />
+      {/* <TheTestbar /> */}
       <div className="flex flex-col flex-1 w-full">
         <TheNavbarAcc />
         <main className="h-full overflow-y-auto">

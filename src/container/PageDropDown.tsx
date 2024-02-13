@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FaCog, FaRegUserCircle, FaSignOutAlt } from 'react-icons/fa';
 
-const ProfileDownDrop: React.FC = () => {
+const PageDropDown: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = React.useRef<HTMLDivElement>(null);
 
@@ -58,4 +58,4 @@ const ProfileDownDrop: React.FC = () => {
     );
 };
 
-export default ProfileDownDrop;
+export default PageDropDown;
