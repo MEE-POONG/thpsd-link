@@ -7,7 +7,7 @@ import Questions from '@/container/Home/Questions';
 import TrialShow from '@/container/All/TrialShow';
 
 
-const HomePage: React.FC = () => {
+const IndexPage: React.FC = () => {
   return (
     <RootLayout>
       <TitleHead />
@@ -19,4 +19,4 @@ const HomePage: React.FC = () => {
   )
 }
 
-export default HomePage;
+export default IndexPage;

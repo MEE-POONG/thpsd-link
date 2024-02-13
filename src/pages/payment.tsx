@@ -1,11 +1,11 @@
-import RootLayout from "@/components/RootLayout";
+import RootLayoutAccount from "@/components/RootLayoutAcc";
 import Link from "next/link";
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
 const PricingPage = () => {
     return (
-        <RootLayout>
+        <RootLayoutAccount>
             <div className='container mx-auto p-5 lg:p-24 drop-shadow-xl'>
                 <h2 className="">Payment</h2>
                 <div className="md:grid grid-cols-10 justify-center gap-6">
@@ -42,7 +42,7 @@ const PricingPage = () => {
 
 
             </div>
-        </RootLayout >
+        </RootLayoutAccount >
     )
 }
 export default PricingPage

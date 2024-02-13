@@ -1,5 +1,5 @@
 import React from 'react';
-import RootLayout from '@/components/RootLayout';
+import RootLayoutAccount from '@/components/RootLayoutAcc';
 import TitleHead from '@/container/Home/TitleHead';
 import ShortenLink from '@/container/All/ShortenLink';
 import Tips from '@/container/All/Tip';
@@ -9,13 +9,9 @@ import TrialShow from '@/container/All/TrialShow';
 
 const HomePage: React.FC = () => {
   return (
-    <RootLayout>
-      <TitleHead />
-      <ShortenLink />
-      <TrialShow />
-      <Tips />
-      <Questions />
-    </RootLayout >
+    <RootLayoutAccount>
+      aaa
+    </RootLayoutAccount >
   )
 }
 
