@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaAngleDown, FaBars, FaTimes } from 'react-icons/fa';
+import { FaAngleDown, FaBars, FaHome, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -8,7 +8,7 @@ const TheSlidebar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
         setIsOpen(!isOpen);
-      };
+    };
 
     useEffect(() => {
     }, [router.pathname]);
@@ -16,28 +16,23 @@ const TheSlidebar: React.FC = () => {
     return (
         <aside className="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
             <div className="py-4 text-gray-500 dark:text-gray-400">
-                <a className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
+                <Link className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
                     Windmill
-                </a>
+                </Link>
                 <ul className="mt-6">
                     <li className="relative px-6 py-3">
                         <span className="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
-                        <a className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                        <Link className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                             href="index.html">
-                            <svg className="w-5 h-5" aria-hidden="true" fill="none" strokeLinecap="round" strokeLinejoin="round"
-                                strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                                </path>
-                            </svg>
+                            <FaHome className="w-5 h-5" />
                             <span className="ml-4">Dashboard</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
                 <ul>
                     <li className="relative px-6 py-3">
-                        <a className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                        <Link className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="forms.html">
                             <svg className="w-5 h-5" aria-hidden="true" fill="none" strokeLinecap="round" strokeLinejoin="round"
                                 strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -46,10 +41,10 @@ const TheSlidebar: React.FC = () => {
                                 </path>
                             </svg>
                             <span className="ml-4">Forms</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="relative px-6 py-3">
-                        <a className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                        <Link className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="cards.html">
                             <svg className="w-5 h-5" aria-hidden="true" fill="none" strokeLinecap="round" strokeLinejoin="round"
                                 strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,10 +53,10 @@ const TheSlidebar: React.FC = () => {
                                 </path>
                             </svg>
                             <span className="ml-4">Cards</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="relative px-6 py-3">
-                        <a className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                        <Link className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="charts.html">
                             <svg className="w-5 h-5" aria-hidden="true" fill="none" strokeLinecap="round" strokeLinejoin="round"
                                 strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -69,10 +64,10 @@ const TheSlidebar: React.FC = () => {
                                 <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                             </svg>
                             <span className="ml-4">Charts</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="relative px-6 py-3">
-                        <a className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                        <Link className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="buttons.html">
                             <svg className="w-5 h-5" aria-hidden="true" fill="none" strokeLinecap="round" strokeLinejoin="round"
                                 strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,10 +76,10 @@ const TheSlidebar: React.FC = () => {
                                 </path>
                             </svg>
                             <span className="ml-4">Buttons</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="relative px-6 py-3">
-                        <a className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                        <Link className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="modals.html">
                             <svg className="w-5 h-5" aria-hidden="true" fill="none" strokeLinecap="round" strokeLinejoin="round"
                                 strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -93,17 +88,17 @@ const TheSlidebar: React.FC = () => {
                                 </path>
                             </svg>
                             <span className="ml-4">Modals</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="relative px-6 py-3">
-                        <a className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                        <Link className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="tables.html">
                             <svg className="w-5 h-5" aria-hidden="true" fill="none" strokeLinecap="round" strokeLinejoin="round"
                                 strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                             </svg>
                             <span className="ml-4">Tables</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="relative px-6 py-3">
                         <button
@@ -129,23 +124,23 @@ const TheSlidebar: React.FC = () => {
                                 className={`transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-xl' : 'opacity-0 max-h-0'} p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900`}
                                 aria-label="submenu">
                                 <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/login.html">Login</a>
+                                    <Link className="w-full" href="pages/login.html">Login</Link>
                                 </li>
                                 <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/create-account.html">
+                                    <Link className="w-full" href="pages/create-account.html">
                                         Create account
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/forgot-password.html">
+                                    <Link className="w-full" href="pages/forgot-password.html">
                                         Forgot password
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/404.html">404</a>
+                                    <Link className="w-full" href="pages/404.html">404</Link>
                                 </li>
                                 <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/blank.html">Blank</a>
+                                    <Link className="w-full" href="pages/blank.html">Blank</Link>
                                 </li>
                             </ul>
                         </path>
