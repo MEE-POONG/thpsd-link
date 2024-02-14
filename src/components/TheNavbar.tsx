@@ -37,7 +37,7 @@ const TheNavbar: React.FC = () => {
             {NavDefault.map((item) => (
               <li key={item?.name}>
                 <Link href={item?.href}
-                  className={`block py-2 pl-3 pr-4 ${checkPath === item.href ? 'text-white underline' : 'text-gray-100'} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-white lg:p-0 `}>
+                  className={`block py-2 pl-3 pr-4 ${checkPath === item.href ? 'text-white underline' : 'text-gray-100'} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-black lg:p-0 `}>
                   {item?.name}
                 </Link>
               </li>
