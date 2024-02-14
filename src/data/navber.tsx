@@ -10,20 +10,15 @@ export const NavAccount = [
     { name: 'table', icon: <FaList />, href: '/table', head: false },
     { name: 'payment', icon: <FaDonate />, href: '/payment', head: false },
     {
-        name: 'page', icon: <FaTable />, href: '/page', head: true, loopPage: [
-            { name: 'login', href: '/login' },
-            { name: 'Create account', href: '/create' },
-            { name: 'Forgot password', href: '/forgotpass' },
-            { name: '404', href: '/404' },
-            { name: 'blank', href: '/blank' },
+        name: 'Rules & policies', icon: <FaTable />, href: '/rules&policies', head: true, loopPage: [
+            { name: 'กฏ', href: '/' },
+            { name: 'นโยบาบ', href: '/policies' },
         ]
     },
     {
-        name: 'page two', icon: <FaTable />, href: '/pagetwo', head: true, loopPage: [
-            { name: 'check', href: '/check' },
-            { name: 'account', href: '/account' },
-            { name: 'money', href: '/money' },
+        name: 'Rules & policies', icon: <FaTable />, href: '/policies', head: true, loopPage: [
+            { name: 'นโยบาบ', href: '/' },
+            { name: 'กฏ', href: '/rules' },
         ]
     },
-
 ];
