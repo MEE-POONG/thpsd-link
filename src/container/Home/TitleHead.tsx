@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const TitleHead: React.FC = () => {
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <div className="bg-white ">
             <div className="grid max-w-screen-xl px-4 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
                 <div className="mr-auto place-self-center lg:col-span-8">
                     <h1 className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">Building digital
@@ -20,7 +20,7 @@ const TitleHead: React.FC = () => {
                     <img className='w-94 ' src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="hero image" />
                 </div>
             </div>
-        </section>
+        </div>
 
     )
 }
