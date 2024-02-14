@@ -21,6 +21,7 @@ const TheSlidebar: React.FC = () => {
         }
     }, []);
 
+
     return (
         <aside className="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
             <div className="py-4 text-gray-500 dark:text-gray-400">
