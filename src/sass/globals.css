@@ -1,1 +1,1 @@
-@tailwind base;@tailwind components;@tailwind utilities;.grid{display:grid}
+@tailwind base;@tailwind components;@tailwind utilities;.grid{display:grid}body{background-image:url("/images/bg02.jpg");background-size:cover;background-attachment:fixed}
