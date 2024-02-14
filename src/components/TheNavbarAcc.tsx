@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { NavDefault } from '@/data/navber';
 import { FaBars, FaBell, FaCog, FaMoon, FaRegUserCircle, FaSearch, FaSignOutAlt, FaSun } from 'react-icons/fa';
 import ProfileDownDrop from '@/container/ProfileDropDown';
 import NotificationDropDown from '@/container/NotificationDropDown';
 
 const TheNavbarAcc: React.FC = () => {
-  const router = useRouter();
-  const checkPath = router.pathname;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
