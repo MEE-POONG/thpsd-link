@@ -10,7 +10,10 @@ const TheSlidebar: React.FC = () => {
     const toggleMenu = (menuName: string) => {
         setOpenMenu(openMenu === menuName ? null : menuName);
     };
+    
     const isActiveSubPage = (itemHref: string) => {
+        console.log("14-15 : ",router.pathname.startsWith(itemHref));
+
         return router.pathname.startsWith(itemHref);
     };
     useEffect(() => {
