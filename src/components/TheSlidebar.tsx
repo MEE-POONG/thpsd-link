@@ -3,8 +3,6 @@ import { FaChevronDown, FaTable } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { NavAccount } from '@/data/navber';
-import MenuLinkDropDown from '@/container/TheSlidebar/MenuLinkDropDown';
-import MenuLinkList from '@/container/TheSlidebar/MenuLinkList';
 
 const TheSlidebar: React.FC = () => {
     const router = useRouter();
