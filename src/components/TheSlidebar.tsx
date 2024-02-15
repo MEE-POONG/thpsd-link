@@ -3,7 +3,8 @@ import { FaChevronDown, FaTable } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { NavAccount } from '@/data/navber';
-import MenuDropDown from '@/container/menuDropDown';
+import MenuLinkDropDown from '@/container/TheSlidebar/MenuLinkDropDown';
+import MenuLinkList from '@/container/TheSlidebar/MenuLinkList';
 
 const TheSlidebar: React.FC = () => {
     const router = useRouter();
@@ -17,9 +18,23 @@ const TheSlidebar: React.FC = () => {
                 <ul className="mt-6">
                     {NavAccount.map((item, index) =>
                         item.head ? (
-                            <MenuDropDown key={index} NewsItem={item} />
+                            <li key={index} className={`relative px-6 py-1 text-gray-500 border-l-4 dark:hover:text-gray-200 `}>
+                                <div className={`inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 `}>
+                                    {item.icon}
+                                    <span className="ml-4">{item.name}</span>
+                                </div>
+                                <ul className="transition-opacity duration-300 ease-in-out opacity-100 max-h-xl p-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900">
+                                    {item.loopPage?.map((subItem, index) => (
+                                        <li key={index} className={`relative px-4 py-1 transition-colors duration-150 border-l-4 hover:text-gray-800 dark:hover:text-gray-200 ${router.pathname === item.href + subItem.href ? 'border-l-4 border-purple-600' : 'hover:border-l-4 hover:border-purple-600'}`}>
+                                            <Link href={`${item.href}${subItem.href}`} className="w-full">
+                                                {subItem.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
                         ) : (
-                            <li key={item.href} className={`relative px-6 py-3 text-gray-800 border-l-4 hover:border-purple-600 hover:text-purple-600 dark:hover:text-gray-200 ${router.pathname === item.href ? 'text-purple-600 border-purple-600' : ''}`}>
+                            <li key={index} className={`relative px-6 py-1 text-gray-800 border-l-4 hover:border-purple-600 hover:text-purple-600 dark:hover:text-gray-200 ${router.pathname === item.href ? 'text-purple-600 border-purple-600' : ''}`}>
                                 <Link href={item.href} className={`inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 `}>
                                     {item.icon}
                                     <span className="ml-4">{item.name}</span>
