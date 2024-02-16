@@ -22,7 +22,6 @@ const ShortenLink: React.FC<LinkShortenerProps> = () => {
                         ง่าย รวดเร็ว ปลอดภัย ใช้ได้นาน
                     </p>
                 </div>
-                {/* <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"> */}
                 <div className="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                     <div className="sm:col-span-4 text-left">
                         <label htmlFor="username" className="block text-base md:text-lg font-medium leading-6 text-gray-900">

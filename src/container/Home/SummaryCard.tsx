@@ -1,50 +1,30 @@
+import Link from "next/link";
 import React from "react";
-import Link from "next/link"
-import { FaStar } from "react-icons/fa";
 
 const SummaryCard: React.FC = () => {
     return (
-        <div>
-            <h2 className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                Charts
+        <div className="">
+            <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                Welcome, this is your platform.
             </h2>
             <div className="grid gap-6 mb-8 md:grid-cols-2">
-                <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <h4 className="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                        Revenue
-                    </h4>
-                    <canvas id="pie"></canvas>
-                    <div className="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
-
-                        <div className="flex items-center">
-                            <span className="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"></span>
-                            <span>Shirts</span>
-                        </div>
-                        <div className="flex items-center">
-                            <span className="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                            <span>Shoes</span>
-                        </div>
-                        <div className="flex items-center">
-                            <span className="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                            <span>Bags</span>
-                        </div>
+                <div>
+                    <h2 className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                        Getting started with Bitly
+                    </h2>
+                    <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                        <Link href={`/createlink`} className="p-1 mr-3 rounded border-2 border-purple-500 text-purple-500 hover:bg-purple-200">
+                            Create a link
+                        </Link>
+                        สร้างลิงค์ใหม่
                     </div>
                 </div>
-                <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <h4 className="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                        Traffic
-                    </h4>
-                    <canvas id="line"></canvas>
-                    <div className="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
+                <div>
+                    <h2 className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                        How to use
+                    </h2>
+                    <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
 
-                        <div className="flex items-center">
-                            <span className="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                            <span>Organic</span>
-                        </div>
-                        <div className="flex items-center">
-                            <span className="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                            <span>Paid</span>
-                        </div>
                     </div>
                 </div>
             </div>
