@@ -3,11 +3,11 @@ import React from "react";
 
 const SummaryCard: React.FC = () => {
     return (
-        <div className="">
+        <div className="home my-6 ">
             <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
                 Welcome, this is your platform.
             </h2>
-            <div className="grid gap-6 mb-8 md:grid-cols-2">
+            <div className="grid gap-6 mb-8 md:grid-cols-2 my-6">
                 <div>
                     <h2 className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                         Getting started with Bitly
