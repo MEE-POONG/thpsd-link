@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import RootLayoutAccount from '@/components/RootLayoutAcc';
 import AlertIndex from '@/components/Aler';
+import ModalIndex from '@/components/Modal';
 
 const CreateLinkPage: React.FC = () => {
   const [alert, setAlert] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleSuccess = () => {
     setAlert({ type: 'success', message: 'Successfully saved!' });
@@ -43,12 +45,19 @@ const CreateLinkPage: React.FC = () => {
               </div>
             </div>
             <div className="mt-6 flex items-center justify-end gap-x-6">
+              <button
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Open Modal
+              </button>
               <button type="button" onClick={toggleError} className="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
               <button type="button" onClick={toggleSuccess} className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Save</button>
             </div>
           </div>
         </div>
       </div>
+      <ModalIndex isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </RootLayoutAccount >
   )
 }
