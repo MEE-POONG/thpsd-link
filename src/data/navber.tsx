@@ -7,7 +7,7 @@ export const NavDefault = [
 export const NavAccount = [
     { name: 'home', icon: <FaHome className="w-5 h-5" />, href: '/home', head: false },
     { name: 'create link', icon: <FaLink className="w-5 h-5" />, href: '/createlink', head: false },
-    { name: 'table', icon: <FaList />, href: '/table', head: false },
+    { name: 'list link', icon: <FaList />, href: '/tableLink', head: false },
     { name: 'payment', icon: <FaDonate />, href: '/payment', head: false },
     {
         name: 'Rules & policies', icon: <FaTable />, href: '/rulespolicies', head: true, loopPage: [

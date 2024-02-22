@@ -1,11 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './style.scss';
+@import "./style.scss";
 
-
-body{
-    background-image: url('/images/bg02.jpg');
+body {
+    background-image: url("/images/bg02.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
