@@ -15,11 +15,4 @@ export const NavAccount = [
             { name: 'นโยบาบ', href: '/rules' },
         ]
     },
-    {
-        name: 'Rules & policies', icon: <FaTable />, href: '/rulesspoliciess', head: true, loopPage: [
-            { name: 'กฏ', href: '' },
-            { name: 'นโยบาบ', href: '/rules' },
-        ]
-    },
-  
 ];

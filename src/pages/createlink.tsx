@@ -21,7 +21,7 @@ const CreateLinkPage: React.FC = () => {
   const handleConfirm = () => {
     setFormState(prevState => ({
       ...prevState,
-      linkBuild: 'www.sss.com'
+      linkBuild: 'www.sssxx.com'
     }));
     setModalStatus('loading');
 

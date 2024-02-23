@@ -40,3 +40,17 @@ export const QuestionsData = [
         content: `Whether you’re sharing one link or scan or millions, our platform was built to help you make every point of connection between your content and your audience ignite action.<br/>It’s why the most recognized brands in the world love our platform.`,
     },
 ];
+export const TableLinkData = [
+    { id: "cdewsxedcrfvtgb", title: "aa", destination: "www.osx.com", linkBuild: "w.a.x1", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "bb", destination: "www.osx.com", linkBuild: "w.a.x2", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x3", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x4", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x5", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x6", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x7", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x8", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x9", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x10", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x11", count: 1, userID: "qazwsxedcrfvtgb" },
+    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x12", count: 1, userID: "qazwsxedcrfvtgb" },
+];
