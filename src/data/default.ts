@@ -54,3 +54,12 @@ export const TableLinkData = [
     { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x11", count: 1, userID: "qazwsxedcrfvtgb" },
     { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x12", count: 1, userID: "qazwsxedcrfvtgb" },
 ];
+
+export const PriceData = [
+    { id: "1", title: 'Free', subtitle: 'Best option for personal use & for your next project.', detail: 'Best option for personal use & for your next project.Best option for personal use & for your next project.', price: '0', addOn: { linkMax: '20', qr: '', backoffice: true } },
+    { id: "2", title: 'Starter', subtitle: 'Best option for personal use & for your next project.', detail: 'Best option for personal use & for your next project.Best option for personal use & for your next project.', price: '9.99', addOn: { linkMax: '500', qr: '', backoffice: true } },
+    { id: "3", title: 'Single', subtitle: 'Best option for personal use & for your next project.', detail: 'Best option for personal use & for your next project.Best option for personal use & for your next project.', price: '19.99', addOn: { linkMax: '1500', qr: '', backoffice: true } },
+    { id: "4", title: 'Team', subtitle: 'Best option for personal use & for your next project.', detail: 'Best option for personal use & for your next project.Best option for personal use & for your next project.', price: '29.99', addOn: { linkMax: '3000', qr: '', backoffice: true } },
+    { id: "5", title: 'Team Manager', subtitle: 'Best option for personal use & for your next project.', detail: 'Best option for personal use & for your next project.Best option for personal use & for your next project.', price: '39.99', addOn: { linkMax: '5000', qr: '', backoffice: true } },
+    { id: "6", title: 'Team Enterprise', subtitle: 'Best option for personal use & for your next project.', detail: 'Best option for personal use & for your next project.Best option for personal use & for your next project.', price: '59.99', addOn: { linkMax: '12000', qr: '', backoffice: true } },
+];
