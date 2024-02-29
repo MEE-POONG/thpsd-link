@@ -19,11 +19,11 @@ const TableLinkPage: React.FC = () => {
 
         <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
 
-          <div className="flex justify-between flex-1">
-            <h2 className="font-semibold text-gray-700 dark:text-gray-200 lg:text-xl lx:text-2xl flex items-center">
+          <div className="flex justify-between  flex-1">
+            <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
               รายการ Get Link
             </h2>
-            <div className="relative w-full lg:w-72 md:w-64 focus-within:text-purple-500">
+            <div className="relative w-full max-w-xl focus-within:text-purple-500">
               <div className="absolute inset-y-0 flex items-center pl-2">
                 <FaSearch />
               </div>
@@ -40,18 +40,18 @@ const TableLinkPage: React.FC = () => {
                     <th className="p-2 border border-gray-300 w-14">No.</th>
                     <th className="p-2 border border-gray-300 w-60">Title</th>
                     <th className="p-2 border border-gray-300 w-60">Prototype</th>
-                    <th className="p-2 border border-gray-300 md:w-full w-60">Link Build</th>
+                    <th className="p-2 border border-gray-300 w-full">Link Build</th>
                     <th className="p-2 border border-gray-300 w-32">Count Use</th>
                     <th className="p-2 border border-gray-300 w-12"></th>
                   </tr>
                 </thead>
-                <tbody className="bg-grey-light text-center flex flex-col items-center justify-between overflow-y-scroll w-full h-auto md:max-h-[70vh] max-h-[67vh]">
+                <tbody className="bg-grey-light text-center items-center justify-between overflow-y-scroll w-full" style={{ height: "70vh" }}>
                   {TableLinkData?.map((item, index) => (
                     <tr key={index} className="flex w-full">
                       <td className="p-2 border border-gray-300 w-14 text-right">{index + 1}</td>
                       <td className="p-2 border border-gray-300 w-60">{item?.title}</td>
                       <td className="p-2 border border-gray-300 w-60">{item?.destination}</td>
-                      <td className="p-2 border border-gray-300 md:w-full w-60">
+                      <td className="p-2 border border-gray-300 w-full">
                         {item?.linkBuild}
                         <button
                           onClick={() => handleCopyLink(item?.linkBuild)}
@@ -66,7 +66,7 @@ const TableLinkPage: React.FC = () => {
                         </p>
                       </td>
                       <td className="p-2 border border-gray-300 w-12 text-center">
-                        <button className='flex justify-center items-center w-full h-full text-red-500 hover:text-red-800'>
+                        <button className='flex justify-center w-full h-full text-red-500 hover:text-red-800'>
                           <FaTimes className='' />
                         </button>
                       </td>
@@ -77,7 +77,6 @@ const TableLinkPage: React.FC = () => {
             </div>
           </div>
           <div className="flex justify-between">
-
             <nav aria-label="Page navigation example">
               <ul className="inline-flex items-center -space-x-px">
                 <li>
@@ -87,7 +86,7 @@ const TableLinkPage: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" aria-current="page" className="py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100">1</a>
+                  <a href="#" className="py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100">1</a>
                 </li>
                 <li>
                   <a href="#" className="py-2 px-3 text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>

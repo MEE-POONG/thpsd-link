@@ -1,7 +1,9 @@
 .scroll-cler,
 thead.flex {
     overflow-y: scroll;
-    &::-webkit-scrollbar {
-        width: 17px;
+    @media screen and (min-width: 992px) {
+        &::-webkit-scrollbar {
+            width: 17px;
+        }
     }
 }

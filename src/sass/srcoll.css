@@ -1,1 +1,1 @@
-.scroll-cler,thead.flex{overflow-y:scroll}.scroll-cler::-webkit-scrollbar,thead.flex::-webkit-scrollbar{width:17px}
+.scroll-cler,thead.flex{overflow-y:scroll}@media screen and (min-width: 992px){.scroll-cler::-webkit-scrollbar,thead.flex::-webkit-scrollbar{width:17px}}
