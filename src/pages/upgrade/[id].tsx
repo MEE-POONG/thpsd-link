@@ -30,7 +30,7 @@ const SelectPackagePage: React.FC = () => {
       <div className="upgrade container px-6 mx-auto mt-6 grid">
         <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
           <div className="max-w-screen-xl mx-auto flex">
-            <div className='w-7/12 bg-yellow-500 mx-2 p-2'>
+            <div className='w-7/12 mx-2 p-2'>
               <div className="max-w-screen-md mx-auto mb-8 lg:mb-12">
                 <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
                   เลือกแพ็คเกจ {packageData?.title}
@@ -42,7 +42,7 @@ const SelectPackagePage: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className='w-5/12 bg-yellow-500 mx-2 p-2'>
+            <div className='w-5/12 mx-2 p-2'>
               <div className="max-w-screen-md mx-auto mb-8 lg:mb-12">
                 <p>สรุปรายการแพ็คเกจ</p>
                 <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
