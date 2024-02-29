@@ -10,9 +10,10 @@ export const NavAccount = [
     { name: 'list link', icon: <FaList />, href: '/tableLink', head: false },
     { name: 'payment', icon: <FaDonate />, href: '/payment', head: false },
     {
-        name: 'Rules & policies', icon: <FaTable />, href: '/rulespolicies', head: true, loopPage: [
-            { name: 'กฏ', href: '' },
-            { name: 'นโยบาบ', href: '/rules' },
+        name: 'Requirements', icon: <FaTable />, href: '/requirements', head: true, loopPage: [
+            { name: 'Rules', href: '/' },
+            { name: 'Terms of Service', href: '/terms' },
+            { name: 'Policy', href: '/policy' },
         ]
     },
 ];
