@@ -51,8 +51,8 @@ export const TableLinkData = [
     { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x8", count: 1, userID: "qazwsxedcrfvtgb" },
     { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x9", count: 1, userID: "qazwsxedcrfvtgb" },
     { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x10", count: 1, userID: "qazwsxedcrfvtgb" },
-    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x11", count: 1, userID: "qazwsxedcrfvtgb" },
-    { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x12", count: 1, userID: "qazwsxedcrfvtgb" },
+    // { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x11", count: 1, userID: "qazwsxedcrfvtgb" },
+    // { id: "cdewsxedcrfvtgb", title: "cc", destination: "www.osx.com", linkBuild: "w.a.x12", count: 1, userID: "qazwsxedcrfvtgb" },
 ];
 
 export const PriceData = [

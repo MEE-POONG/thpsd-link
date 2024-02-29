@@ -45,7 +45,7 @@ const TableLinkPage: React.FC = () => {
                     <th className="p-2 border border-slate-600 w-12"></th>
                   </tr>
                 </thead>
-                <tbody className="bg-grey-light text-center flex flex-col items-center justify-between overflow-y-scroll w-full" style={{ height: "70vh" }}>
+                <tbody className="bg-grey-light text-center items-center justify-between overflow-y-scroll w-full" style={{ height: "70vh" }}>
                   {TableLinkData?.map((item, index) => (
                     <tr className="flex w-full">
                       <td className="p-2 border border-slate-600 w-14 text-right">{index + 1}</td>
@@ -66,7 +66,7 @@ const TableLinkPage: React.FC = () => {
                         </p>
                       </td>
                       <td className="p-2 border border-slate-600 w-12 text-center">
-                        <button className='flex justify-center items-center w-full h-full text-red-500 hover:text-red-800'>
+                        <button className='flex justify-center w-full h-full text-red-500 hover:text-red-800'>
                           <FaTimes className='' />
                         </button>
                       </td>
