@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import RootLayoutAccount from '@/components/RootLayoutAcc';
-import { TableLinkData } from '@/data/default';
-import { FaAngleDown, FaCheckCircle, FaCopy, FaSearch, FaTimes } from 'react-icons/fa';
+import { FaCheckCircle } from 'react-icons/fa';
 import Link from 'next/link';
 
 const UpgradePage: React.FC = () => {

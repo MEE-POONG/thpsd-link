@@ -32,43 +32,49 @@ const TableLinkPage: React.FC = () => {
                 type="text" placeholder="Search for projects" aria-label="Search" />
             </div>
           </div>
-          <div className='my-4'>
-            <table className="w-full border-separate border-spacing-1 border rounded-md border-slate-500 ">
-              <thead>
-                <tr>
-                  <th className='w-8 border rounded-md border-slate-600'>No.</th>
-                  <th className='border rounded-md border-slate-600'>Title</th>
-                  <th className='border rounded-md border-slate-600'>Prototype</th>
-                  <th className='border rounded-md border-slate-600'>Link Build</th>
-                  <th className='w-20 border rounded-md border-slate-600'>Count Use</th>
-                  <th className='w-8 border rounded-md border-slate-600'></th>
-                </tr>
-              </thead>
-              <tbody>
-                {TableLinkData?.map((item, index) => (
-                  <tr key={index} className='text-center border rounded-md border-slate-700'>
-                    <td className='text-right border rounded-md border-slate-700 px-1'>{index + 1}</td>
-                    <td className='border rounded-md border-slate-700'>{item?.title}</td>
-                    <td className='border rounded-md border-slate-700'>{item?.destination}</td>
-                    <td className='flex border rounded-md border-slate-700 justify-center items-center'>
-                      {item?.linkBuild}
-                      <button
-                        onClick={() => handleCopyLink(item?.linkBuild)}
-                        className='ml-2 text-green-500 hover:text-green-800'
-                      >
-                        <FaCopy />
-                      </button>
-                    </td>
-                    <td className='border rounded-md border-slate-700'>{item?.count}</td>
-                    <td className='w-8 border rounded-md border-slate-700'>
-                      <button className='flex justify-center w-full h-full text-red-500 hover:text-red-800'>
-                        <FaTimes className='' />
-                      </button>
-                    </td>
+          <div className="items-center justify-center py-4">
+            <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+              <table className="text-left w-full border border-slate-500">
+                <thead className="flex w-full text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-xs ">
+                  <tr className="flex w-full">
+                    <th className="p-2 border border-slate-600 w-14">No.</th>
+                    <th className="p-2 border border-slate-600 w-60">Title</th>
+                    <th className="p-2 border border-slate-600 w-60">Prototype</th>
+                    <th className="p-2 border border-slate-600 w-full">Link Build</th>
+                    <th className="p-2 border border-slate-600 w-32">Count Use</th>
+                    <th className="p-2 border border-slate-600 w-12"></th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="bg-grey-light text-center flex flex-col items-center justify-between overflow-y-scroll w-full" style={{ height: "70vh" }}>
+                  {TableLinkData?.map((item, index) => (
+                    <tr className="flex w-full">
+                      <td className="p-2 border border-slate-600 w-14 text-right">{index + 1}</td>
+                      <td className="p-2 border border-slate-600 w-60">{item?.title}</td>
+                      <td className="p-2 border border-slate-600 w-60">{item?.destination}</td>
+                      <td className="p-2 border border-slate-600 w-full">
+                        {item?.linkBuild}
+                        <button
+                          onClick={() => handleCopyLink(item?.linkBuild)}
+                          className='ml-2 text-green-500 hover:text-green-800'
+                        >
+                          <FaCopy />
+                        </button>
+                      </td>
+                      <td className="p-2 border border-slate-600 w-32">
+                        <p className="text-md font-medium text-gray-600 dark:text-white">
+                          {item?.count}
+                        </p>
+                      </td>
+                      <td className="p-2 border border-slate-600 w-12 text-center">
+                        <button className='flex justify-center items-center w-full h-full text-red-500 hover:text-red-800'>
+                          <FaTimes className='' />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
           <div className="flex justify-between">
 
