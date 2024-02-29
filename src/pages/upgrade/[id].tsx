@@ -33,7 +33,7 @@ const SelectPackagePage: React.FC = () => {
             <div className='w-7/12 bg-yellow-500 mx-2 p-2'>
               <div className="max-w-screen-md mx-auto mb-8 lg:mb-12">
                 <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                  เลิอกแพ็คเกจ {packageData?.title}
+                  เลือกแพ็คเกจ {packageData?.title}
                 </h2>
                 <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
                   Here at Landwind we focus on
