@@ -5,7 +5,7 @@ import RootLayoutAccount from '@/components/RootLayoutAcc';
 const IndexPage: React.FC = () => {
   return (
     <RootLayoutAccount>
-      <div className="upgrade container px-6 mx-auto mt-6 grid">
+      <div className="requirements container px-6 mx-auto mt-6 grid">
         <div >
           <span >ข้อกำหนดการใช้งานบัญชีทางการ (LINE Official Account Terms of Use)</span>
         </div>

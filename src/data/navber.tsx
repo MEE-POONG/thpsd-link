@@ -11,7 +11,7 @@ export const NavAccount = [
     { name: 'payment', icon: <FaDonate />, href: '/payment', head: false },
     {
         name: 'Requirements', icon: <FaTable />, href: '/requirements', head: true, loopPage: [
-            { name: 'Rules', href: '/' },
+            { name: 'Rules', href: '' },
             { name: 'Terms of Service', href: '/terms' },
             { name: 'Policy', href: '/policy' },
         ]
