@@ -5,7 +5,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 import Link from 'next/link';
 import { PriceData } from '@/data/default';
 
-const SelectPackagePage: React.FC = () => {
+const CustomPackagePage: React.FC = () => {
   const router = useRouter();
   const { id } = router.query; // Extract the id from the URL
   const packageData = PriceData.find((pkg) => pkg.id === id);
@@ -99,13 +99,11 @@ const SelectPackagePage: React.FC = () => {
                 </button>
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
     </RootLayoutAccount >
   )
 }
 
-export default SelectPackagePage;
+export default CustomPackagePage;
