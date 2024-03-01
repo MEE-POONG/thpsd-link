@@ -1,9 +1,21 @@
+import PaymentDetailsModal from "@/components/Modal/PaymentDetailsModal";
 import RootLayoutAccount from "@/components/RootLayoutAcc";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 
 const PaymentHistory: React.FC = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleViewDetails = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <RootLayoutAccount>
             <div className="container mx-auto my-10 p-5">
@@ -15,7 +27,7 @@ const PaymentHistory: React.FC = () => {
                         <thead>
                             <tr className="bg-purple-500 text-gray-50">
                                 <th className="py-3 px-4 text-left">วันที่ชำระ</th>
-                                <th className="py-3 px-4 text-left">รสายละเอียด</th>
+                                <th className="py-3 px-4 text-left">รายละเอียด</th>
                                 <th className="py-3 px-4 text-left">เดือนที่ใช้</th>
                                 <th className="py-3 px-4 text-left">จำนวนเงิน <span className="text-xs ">(รวมภาษี)</span></th>
                                 <th className="py-3 px-4 text-left">รายละเอียดการชำระเงิน</th>
@@ -30,7 +42,9 @@ const PaymentHistory: React.FC = () => {
                                 <td className="py-3 px-4">12/02/2567 - 11/03/2567</td>
                                 <td className="py-3 px-4">฿ 600.08</td>
                                 <td className="py-3 px-4 text-purple-500">
-                                    <Link href=''>View</Link>
+                                    <button className="text-purple-500 underline" onClick={handleViewDetails}>
+                                        View
+                                    </button>
                                 </td>
                                 <td className="py-3 px-4 text-green-500">success</td>
                                 <td className="py-3 px-4 text-purple-500">
@@ -41,6 +55,7 @@ const PaymentHistory: React.FC = () => {
                     </table>
                 </div>
             </div>
+            <PaymentDetailsModal isOpen={isModalOpen} onClose={handleCloseModal} />
         </RootLayoutAccount>
     )
 }

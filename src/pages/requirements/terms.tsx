@@ -1,16 +1,11 @@
 import React from 'react';
-import TitleHead from '@/container/Index/TitleHead';
-import ShortenLink from '@/container/All/ShortenLink';
-import Tips from '@/container/All/Tip';
-import Questions from '@/container/Index/Questions';
-import TrialShow from '@/container/All/TrialShow';
 import RootLayoutAccount from '@/components/RootLayoutAcc';
 
 
 const IndexPage: React.FC = () => {
   return (
     <RootLayoutAccount>
-      <div className="upgrade container px-6 mx-auto mt-6 grid">
+      <div className="upgrade container px-6 mx-auto mt-6 grid text-sm lg:text-base">
         <div className="MdTerms01" >
 
           <div >
