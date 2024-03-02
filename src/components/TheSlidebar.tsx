@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaChevronDown, FaTable } from 'react-icons/fa';
+import { FaBars, FaChevronDown, FaTable } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { NavAccount } from '@/data/navber';
@@ -16,7 +16,7 @@ const TheSlidebar: React.FC = () => {
                 <ul className="mt-6">
                     {NavAccount.map((item, index) =>
                         item.head ? (
-                            <li key={index} className={`relative px-6 py-1 text-gray-500 border-l-4 hover:border-purple-600 hover:text-purple-600 dark:hover:text-gray-200 ${isActiveSubPage(item?.href)? 'text-purple-600 border-purple-600' : ''} `}>
+                            <li key={index} className={`relative px-6 py-1 text-gray-500 border-l-4 hover:border-purple-600 hover:text-purple-600 dark:hover:text-gray-200 ${isActiveSubPage(item?.href) ? 'text-purple-600 border-purple-600' : ''} `}>
                                 <div className={`inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 `}>
                                     {item.icon}
                                     <span className="ml-4">{item.name}</span>
@@ -54,3 +54,15 @@ const TheSlidebar: React.FC = () => {
 };
 
 export default TheSlidebar;
+
+export const ButtonSlidebar: React.FC = () => {
+    return (
+        <button className="p-1 mr-auto -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+            aria-label="Menu">
+            <FaBars />
+        </button>
+    );
+
+};
+
+

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaBars, FaBell, FaCog, FaMoon, FaRegUserCircle, FaSearch, FaSignOutAlt, FaSun } from 'react-icons/fa';
 import ProfileDownDrop from '@/container/ProfileDropDown';
 import NotificationDropDown from '@/container/NotificationDropDown';
+import { ButtonSlidebar } from './TheSlidebar';
 
 const TheNavbarAcc: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,10 +14,7 @@ const TheNavbarAcc: React.FC = () => {
   return (
     <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
       <div className="container flex items-center justify-end h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
-        <button className="p-1 mr-auto -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
-          aria-label="Menu">
-          <FaBars />
-        </button>
+        <ButtonSlidebar />
         {/* <div className="flex justify-center flex-1 lg:mr-32">
           <div className="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
             <div className="absolute inset-y-0 flex items-center pl-2">

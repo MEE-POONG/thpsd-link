@@ -69,14 +69,8 @@ const UpgradePage: React.FC = () => {
                   </Link>
                 </div>
               ))}
-
-
             </div>
-            <Link href='/upgrade/' className="mt-8 py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
-              จัดการแผนเอง
-            </Link>
           </div>
-
         </div>
       </div>
     </RootLayoutAccount >

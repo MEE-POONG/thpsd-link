@@ -1,4 +1,4 @@
-import { FaDonate, FaHome, FaLink, FaList, FaTable } from "react-icons/fa";
+import { FaDonate, FaHome, FaLink, FaList, FaTable, FaUpload } from "react-icons/fa";
 
 export const NavDefault = [
     { name: 'home', href: '/', current: true },
@@ -9,6 +9,7 @@ export const NavAccount = [
     { name: 'create link', icon: <FaLink className="w-5 h-5" />, href: '/createlink', head: false },
     { name: 'list link', icon: <FaList />, href: '/tableLink', head: false },
     { name: 'payment', icon: <FaDonate />, href: '/payment', head: false },
+    { name: 'upgrade', icon: <FaUpload />, href: '/upgrade', head: false },
     {
         name: 'Requirements', icon: <FaTable />, href: '/requirements', head: true, loopPage: [
             { name: 'Rules', href: '' },

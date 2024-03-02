@@ -1,48 +1,62 @@
+import PaymentDetailsModal from "@/components/Modal/PaymentDetailsModal";
 import RootLayoutAccount from "@/components/RootLayoutAcc";
 import Link from "next/link";
-import React from "react";
-import { FaCheckCircle } from "react-icons/fa";
+import React, { useState } from "react";
 
-const PricingPage = () => {
+
+const PaymentPage: React.FC = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleViewDetails = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <RootLayoutAccount>
-            <div className='container mx-auto p-5 lg:p-24 drop-shadow-xl'>
-                <h2 className="">Payment</h2>
-                <div className="md:grid grid-cols-10 justify-center gap-6">
-                    <div className="col-span-7">
-                        <p>แผนที่เลือก</p>
-                        <div className="border w-64 shadow-md bg-gray-100 p-5 rounded-lg my-5">
-                            <p>แผน 2</p>
-                            <p className="text-2xl font-bold"> ฿150/เดือน</p>
-                        </div>
-                        <div>
-                            <p className="text-xl font-bold mb-5">ข้อมูลติดต่อ</p>
-
-                            <p className="text-base mb-3">First name</p>
-                            <input type="text" className="w-full text-base py-2 px-3 border-b-2 border-purple-600 rounded-lg hover:outline-none drop-shadow-lg" />
-
-                            <p className="text-base mb-3 mt-6">Last name</p>
-                            <input type="text" className="w-full text-base py-2 px-3 border-b-2 border-purple-600 rounded-lg hover:outline-none drop-shadow-lg" />
-
-                            <p className="text-base mb-3 mt-6">Email address</p>
-                            <input type="text" className="w-full text-base py-2 px-3 border-b-2 border-purple-600 rounded-lg hover:outline-none drop-shadow-lg" />
-
-                            <p className="text-base mb-3 mt-6">Phone number</p>
-                            <input type="text" className="w-full text-base py-2 px-3 border-b-2 border-purple-600 rounded-lg hover:outline-none drop-shadow-lg" />
-                        </div>
-                    </div>
-
-                    <div className="col-span-3 mt-5 md:mt-0">
-                        <div className="bg-blue-100 p-5 rounded-lg w-full">
-                            <p>สรุปการซื้อ</p>
-                            <p className="text-xl font-bold flex justify-between ">แผนที่ 2  <span>฿150/เดือน</span></p>
-                        </div>
-                    </div>
+            <div className="container mx-auto my-10 p-5">
+                <h2 className="text-2xl font-semibold ">ประวัติการชำระเงิน</h2>
+                <p className="text-gray-400 text-base mt-1">ดูประวัติการชำระเงินทั้งหมดได้ที่นี่</p>
+                <hr />
+                <div className="overflow-x-auto drop-shadow-xl mt-8">
+                    <table className="w-full my-0 bg-white rounded-lg overflow-hidden">
+                        <thead>
+                            <tr className="bg-purple-500 text-gray-50">
+                                <th className="py-3 px-4 text-left">วันที่ชำระ</th>
+                                <th className="py-3 px-4 text-left">รายละเอียด</th>
+                                <th className="py-3 px-4 text-left">เดือนที่ใช้</th>
+                                <th className="py-3 px-4 text-left">จำนวนเงิน <span className="text-xs ">(รวมภาษี)</span></th>
+                                <th className="py-3 px-4 text-left">รายละเอียดการชำระเงิน</th>
+                                <th className="py-3 px-4 text-left">Status</th>
+                                <th className="py-3 px-4 text-left">ข้อมูลใบกำกับภาษี</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-blue-gray-200 hover:bg-purple-50">
+                                <td className="py-3 px-4">12/02/2567</td>
+                                <td className="py-3 px-4">พรีเมียม</td>
+                                <td className="py-3 px-4">12/02/2567 - 11/03/2567</td>
+                                <td className="py-3 px-4">฿ 600.08</td>
+                                <td className="py-3 px-4 text-purple-500">
+                                    <button className="text-purple-500 underline" onClick={handleViewDetails}>
+                                        View
+                                    </button>
+                                </td>
+                                <td className="py-3 px-4 text-green-500">success</td>
+                                <td className="py-3 px-4 text-purple-500">
+                                    <Link href=''>View</Link>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-
-
             </div>
-        </RootLayoutAccount >
+            <PaymentDetailsModal isOpen={isModalOpen} onClose={handleCloseModal} />
+        </RootLayoutAccount>
     )
 }
-export default PricingPage
+export default PaymentPage;
