@@ -25,7 +25,7 @@ const PaymentPage: React.FC = () => {
 
     return (
         <RootLayoutAccount>
-            <div className="container mx-auto my-10 p-5">
+            <div className="container mx-auto my-10 p-5 text-sm">
                 <h2 className="text-2xl font-semibold ">ประวัติการชำระเงิน</h2>
                 <p className="text-gray-400 text-base mt-1">ดูประวัติการชำระเงินทั้งหมดได้ที่นี่</p>
                 <hr />

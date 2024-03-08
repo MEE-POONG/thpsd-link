@@ -40,7 +40,7 @@ const MyDocument = () => (
 );
 
 const PDFPage = () => (
-    <div style={{ width: '100vh', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div style={{ width: '90vmin', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <PDFViewer style={{ width: '100%', height: '100%' }}>
             <MyDocument />
         </PDFViewer>
