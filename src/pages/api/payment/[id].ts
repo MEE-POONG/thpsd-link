@@ -19,11 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         user: true,
                     },
                 });
-                if (payment) {
-                    res.status(200).json(payment);
-                } else {
-                    res.status(404).json({ message: "Payment data not found" });
-                }
+                res.status(200).json(payment);
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while fetching the payment data" });
             }

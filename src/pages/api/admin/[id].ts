@@ -15,11 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         id: id as string,
                     },
                 });
-                if (admin) {
-                    res.status(200).json(admin);
-                } else {
-                    res.status(404).json({ message: "Admin data not found" });
-                }
+                res.status(200).json(admin);
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while fetching the admin data" });
             }

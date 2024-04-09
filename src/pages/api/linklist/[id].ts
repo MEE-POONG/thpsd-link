@@ -18,11 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         user: true, // Include related user data
                     },
                 });
-                if (link) {
-                    res.status(200).json(link);
-                } else {
-                    res.status(404).json({ message: "Link data not found" });
-                }
+                res.status(200).json(link);
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while fetching the link data" });
             }

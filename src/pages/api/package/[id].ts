@@ -15,11 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         id: id as string,
                     },
                 });
-                if (packageData) {
-                    res.status(200).json(packageData);
-                } else {
-                    res.status(404).json({ message: "Package data not found" });
-                }
+                res.status(200).json(packageData);
+
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while fetching the package data" });
             }
