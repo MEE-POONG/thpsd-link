@@ -1,24 +1,31 @@
-import PaymentDetailsModal from "@/components/Modal/PaymentDetailsModal";
+import React, { useState } from "react";
 import RootLayoutAccount from "@/components/RootLayoutAcc";
 import Link from "next/link";
-import React, { useState } from "react";
+import PaymentDetailsModal from "@/components/Modal/PaymentDetailsModal";
+import InvoiceModal from "@/components/Modal/InvoiceModal";
 
 
 const PaymentPage: React.FC = () => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isPaymentDetailsModalOpen, setIsPaymentDetailsModalOpen] = useState(false);
+    const [isInvoiceModalOpen, setIsInvoiceModalOpen] = useState(false);
 
     const handleViewDetails = () => {
-        setIsModalOpen(true);
+        setIsPaymentDetailsModalOpen(true);
+    };
+
+    const handleOpenInvoice = () => {
+        setIsInvoiceModalOpen(true);
     };
 
     const handleCloseModal = () => {
-        setIsModalOpen(false);
+        setIsPaymentDetailsModalOpen(false);
+        setIsInvoiceModalOpen(false);
     };
 
     return (
         <RootLayoutAccount>
-            <div className="container mx-auto my-10 p-5">
+            <div className="container mx-auto my-10 p-5 text-sm">
                 <h2 className="text-2xl font-semibold ">ประวัติการชำระเงิน</h2>
                 <p className="text-gray-400 text-base mt-1">ดูประวัติการชำระเงินทั้งหมดได้ที่นี่</p>
                 <hr />
@@ -42,20 +49,19 @@ const PaymentPage: React.FC = () => {
                                 <td className="py-3 px-4">12/02/2567 - 11/03/2567</td>
                                 <td className="py-3 px-4">฿ 600.08</td>
                                 <td className="py-3 px-4 text-purple-500">
-                                    <button className="text-purple-500 underline" onClick={handleViewDetails}>
-                                        View
-                                    </button>
+                                    <button className="text-purple-500 underline" onClick={handleViewDetails}>View</button>
                                 </td>
                                 <td className="py-3 px-4 text-green-500">success</td>
                                 <td className="py-3 px-4 text-purple-500">
-                                    <Link href=''>View</Link>
+                                    <button onClick={handleOpenInvoice}>Open Invoice</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <PaymentDetailsModal isOpen={isModalOpen} onClose={handleCloseModal} />
+            <PaymentDetailsModal isOpen={isPaymentDetailsModalOpen} onClose={handleCloseModal} />
+            <InvoiceModal isOpen={isInvoiceModalOpen} onClose={handleCloseModal} />
         </RootLayoutAccount>
     )
 }
