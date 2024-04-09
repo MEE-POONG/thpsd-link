@@ -8,6 +8,10 @@ const Login: React.FC = () => {
                 <div className="w-[300px] md:w-80 p-9 bg-white shadow-lg rounded-2xl border m-auto">
                     <p className="text-xl font-black mb-5">Create your account</p>
                     <div className="my-7">
+                        <p className="text-sm">Firstname</p>
+                        <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Firstname" />
+                        <p className="text-sm">Lastname</p>
+                        <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Lastname" />
                         <p className="text-sm">Username</p>
                         <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter User" />
                         <p className="text-sm">Password</p>
