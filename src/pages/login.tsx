@@ -27,7 +27,6 @@ const Login: React.FC = () => {
                         <img className="h-5 mr-2" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png" alt="" />
                         Sign in with Google
                     </Link>
-
                     <p className="text-sm leading-relaxed text-grey-900 mt-5">
                         Not registered yet?
                         <Link href='./register' className="font-bold text-gray-700 hover:underline ml-2">Create an Account</Link>

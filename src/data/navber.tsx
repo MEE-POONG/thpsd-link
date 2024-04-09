@@ -5,13 +5,13 @@ export const NavDefault = [
     { name: 'pricing', href: '/pricing', current: false },
 ];
 export const NavAccount = [
-    { name: 'home', icon: <FaHome className="w-5 h-5" />, href: '/home', head: false },
-    { name: 'create link', icon: <FaLink className="w-5 h-5" />, href: '/createlink', head: false },
-    { name: 'list link', icon: <FaList />, href: '/tableLink', head: false },
-    { name: 'payment', icon: <FaDonate />, href: '/payment', head: false },
-    { name: 'upgrade', icon: <FaUpload />, href: '/upgrade', head: false },
+    { name: 'home', icon: <FaHome className="w-5 h-5" />, href: '/menage/home', head: false },
+    { name: 'create link', icon: <FaLink className="w-5 h-5" />, href: '/menage/createlink', head: false },
+    { name: 'list link', icon: <FaList />, href: '/menage/tableLink', head: false },
+    { name: 'payment', icon: <FaDonate />, href: '/menage/payment', head: false },
+    { name: 'upgrade', icon: <FaUpload />, href: '/menage/upgrade', head: false },
     {
-        name: 'Requirements', icon: <FaTable />, href: '/requirements', head: true, loopPage: [
+        name: 'Requirements', icon: <FaTable />, href: '/menage/requirements', head: true, loopPage: [
             { name: 'Rules', href: '' },
             { name: 'Terms of Service', href: '/terms' },
             { name: 'Policy', href: '/policy' },

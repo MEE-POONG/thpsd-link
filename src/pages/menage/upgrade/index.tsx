@@ -16,7 +16,7 @@ const UpgradePage: React.FC = () => {
   };
   return (
     <RootLayoutAccount>
-      <div className="upgrade container px-6 mx-auto mt-6 grid">
+      <div className="upgrade container mx-auto mt-6 grid">
         <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
           <div className="max-w-screen-xl mx-auto">
             <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
