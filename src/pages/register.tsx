@@ -1,7 +1,7 @@
 import RootLayout from "@/components/RootLayout";
 import Link from "next/link";
 
-const Login: React.FC = () => {
+const RegiterPage: React.FC = () => {
     return (
         <RootLayout>
             <div className="container mx-auto py-24">
@@ -13,7 +13,7 @@ const Login: React.FC = () => {
                         <p className="text-sm">Lastname</p>
                         <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Lastname" />
                         <p className="text-sm">Username</p>
-                        <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter User" />
+                        <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Username" />
                         <p className="text-sm">Password</p>
                         <input type="text" className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Password" />
                         <p className="text-sm">Confirm-Password</p>
@@ -44,4 +44,4 @@ const Login: React.FC = () => {
         </RootLayout>
     )
 }
-export default Login;
+export default RegiterPage;
