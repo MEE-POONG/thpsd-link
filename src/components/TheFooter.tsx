@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { NavDefault } from '@/data/navber';
 
 const TheFooter: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
-  const checkPath = router.pathname;
-  console.log("checkPath : ", checkPath);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <footer className="bg-white dark:bg-gray-800">

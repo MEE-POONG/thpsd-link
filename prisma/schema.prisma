@@ -25,8 +25,8 @@ model UserData {
   id            String         @id @default(auto()) @map("_id") @db.ObjectId
   username      String?
   password      String?
-  firstName     String?
-  lastName      String?
+  firstname     String?
+  lastname      String?
   email         String         @unique
   emailVerified Boolean        @default(false)
   tel           String?
