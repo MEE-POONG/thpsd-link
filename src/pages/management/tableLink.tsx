@@ -2,8 +2,21 @@ import React, { useEffect, useState } from 'react';
 import RootLayoutAccount from '@/components/RootLayoutAcc';
 import { TableLinkData } from '@/data/default';
 import { FaAngleDown, FaCopy, FaSearch, FaTimes } from 'react-icons/fa';
+import useAxios from 'axios-hooks';
+import { LinkListData } from '@prisma/client';
 
-const TableLinkPage: React.FC = () => {
+const TableLinkPage: React.FC = (props) => {
+
+  const [{ data: linklistData }, getLinklistData] = useAxios({
+    url: "/api/linklist",
+    method: "GET",
+  });
+
+  const [filteredlinklistData, setFilteredLinklistData] = useState<LinkListData[]>([]);
+
+  useEffect(() => {
+    setFilteredLinklistData(linklistData?.linklist ?? []);
+  }, [linklistData]);
 
   const handleCopyLink = async (link: any) => {
     try {
@@ -46,15 +59,15 @@ const TableLinkPage: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-grey-light text-center flex flex-col items-center justify-between overflow-y-scroll w-full h-auto md:max-h-[70vh] max-h-[67vh]">
-                  {TableLinkData?.map((item, index) => (
+                  {linklistData?.map((linklist, index) => (
                     <tr key={index} className="flex w-full">
                       <td className="p-2 border border-gray-300 w-14 text-right">{index + 1}</td>
-                      <td className="p-2 border border-gray-300 w-60">{item?.title}</td>
-                      <td className="p-2 border border-gray-300 w-60">{item?.destination}</td>
+                      <td className="p-2 border border-gray-300 w-60">{linklist?.title}</td>
+                      <td className="p-2 border border-gray-300 w-60">{linklist?.origUrl}</td>
                       <td className="p-2 border border-gray-300 md:w-full w-60">
-                        {item?.linkBuild}
+                        {linklist?.shortUrl}
                         <button
-                          onClick={() => handleCopyLink(item?.linkBuild)}
+                          onClick={() => handleCopyLink(linklist?.shortUrl)}
                           className='ml-2 text-green-500 hover:text-green-800'
                         >
                           <FaCopy />
@@ -62,7 +75,7 @@ const TableLinkPage: React.FC = () => {
                       </td>
                       <td className="p-2 border border-gray-300 w-32">
                         <p className="text-md font-medium text-gray-600 dark:text-white">
-                          {item?.count}
+                          {linklist?.click}
                         </p>
                       </td>
                       <td className="p-2 border border-gray-300 w-12 text-center">
@@ -102,6 +115,7 @@ const TableLinkPage: React.FC = () => {
                   </a>
                 </li>
               </ul>
+              {/* option select */}
             </nav>
             <div className="relative inline-block w-24 text-gray-700">
               <select
