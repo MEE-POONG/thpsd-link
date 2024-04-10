@@ -12,14 +12,10 @@
     "@prisma/client": "^5.12.1",
     "@react-icons/all-files": "^4.1.0",
     "@react-pdf/renderer": "^3.3.8",
-<<<<<<< HEAD
-    "axios-hooks": "^5.0.2",
-=======
     "@types/bcryptjs": "^2.4.6",
     "axios": "^1.6.8",
     "axios-hooks": "^5.0.2",
     "bcryptjs": "^2.4.3",
->>>>>>> 116b70b5a50b0ef25f56605ff4f4d87dd61acfd0
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
