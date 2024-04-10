@@ -1,9 +1,20 @@
 import RootLayout from "@/components/RootLayout";
+import useAxios from "axios-hooks";
 import Link from "next/link";
 import { useState } from "react";
 
+interface UserData {
+    username: string;
+    firstname: string;
+    lastname: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+}
+
 const RegiterPage: React.FC = () => {
-    const [userData, setUserData] = useState({
+
+    const [userData, setUserData] = useState<UserData>({
         username: '',
         firstname: '',
         lastname: '',
@@ -12,36 +23,43 @@ const RegiterPage: React.FC = () => {
         confirmPassword: ''
     });
 
+    const [{ data: postData, loading: postLoading, error: postError }, executePost] = useAxios({
+        url: '/api/user/register', // URL to your API endpoint
+        method: 'POST'
+    }, { manual: true });
+
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        console.log(e);
-        
-        e.preventDefault();
+    const handleSubmit = async () => {
         if (userData.password !== userData.confirmPassword) {
             alert("Passwords do not match!");
             return;
         }
+
         try {
-            const response = await fetch('/api/user/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userData),
+            // Using executePost from useAxios
+            const response = await executePost({
+                data: {
+                    username: userData.username,
+                    firstname: userData.firstname,
+                    lastname: userData.lastname,
+                    email: userData.email,
+                    password: userData.password
+                }
             });
-            const data = await response.json();
-            if (response.ok) {
-                console.log('Registration successful', data);
+
+            if (response.status === 201) {
+                console.log('Registration successful', response.data);
             } else {
-                throw new Error(data.error || 'An error occurred');
+                throw new Error('An error occurred');
             }
-        } catch (error) {
-            console.error('Registration failed', error);
+        } catch (error: any) {
+            console.error('Registration failed', error.response ? error.response.data : error);
         }
     };
+
 
     return (
         <RootLayout>
@@ -69,7 +87,8 @@ const RegiterPage: React.FC = () => {
                                 onChange={handleInput}
                                 className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter Firstname"
-                            />                        </div>
+                            />
+                        </div>
                         <div>
                             <p className="text-sm">Lastname</p>
                             <input
@@ -79,7 +98,8 @@ const RegiterPage: React.FC = () => {
                                 onChange={handleInput}
                                 className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter Lastname"
-                            />                        </div>
+                            />
+                        </div>
                         <div className="md:col-span-2">
                             <p className="text-sm">E-Mail</p>
                             <input
@@ -100,7 +120,8 @@ const RegiterPage: React.FC = () => {
                                 onChange={handleInput}
                                 className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter Password"
-                            />                        </div>
+                            />
+                        </div>
                         <div>
                             <p className="text-sm">Confirm-Password</p>
                             <input
@@ -110,7 +131,8 @@ const RegiterPage: React.FC = () => {
                                 onChange={handleInput}
                                 className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter Password"
-                            />                        </div>
+                            />
+                        </div>
                     </div>
                     <button onClick={handleSubmit} className="py-2 px-4 bg-black hover:bg-white hover:text-black border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-sm font-semibold shadow-md rounded-lg mb-3">
                         Create Account
@@ -120,7 +142,6 @@ const RegiterPage: React.FC = () => {
                         <Link href='./login' className="font-bold text-gray-700 hover:underline ml-2">Login</Link>
                     </p>
                 </div>
-
             </div>
         </RootLayout>
     )

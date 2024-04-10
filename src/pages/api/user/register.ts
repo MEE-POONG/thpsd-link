@@ -11,23 +11,37 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case 'POST':
             try {
                 const { username, firstname, lastname, email, password } = req.body;
-                // Validation logic here (omitted for brevity)
+
+                const existingUser = await prisma.userData.findFirst({
+                    where: {
+                        OR: [
+                            { username },
+                            { email }
+                        ]
+                    }
+                });
+
+                if (existingUser) {
+                    const field = existingUser.username === username ? 'username' : 'email';
+                    res.status(409).json({ error: `An account with this ${field} already exists.` });
+                    return;
+                }
 
                 const hashedPassword = await bcrypt.hash(password, 10);
                 const newUser = await prisma.userData.create({
                     data: {
                         username,
-                        firstname, // Updated to match the Prisma schema
+                        firstname,
                         lastname,
                         email,
                         password: hashedPassword,
-                        createdBy: 'system', // Adjust this depending on your application logic
-                        updateBy: 'system'  // Adjust this depending on your application logic
+                        createdBy: 'system',
+                        updateBy: 'system'
                     },
                 });
                 res.status(201).json({ message: 'User created successfully', user: newUser });
             } catch (error) {
-                res.status(500).json({ error: "An error occurred while creating the user" });
+                res.status(500).json({ error: "An error occurred while creating the user." });
             }
             break;
         default:
