@@ -1,3 +1,4 @@
+import ModalAPI from "@/components/Modal/ModalAPI";
 import RootLayout from "@/components/RootLayout";
 import useAxios from "axios-hooks";
 import Link from "next/link";
@@ -27,7 +28,9 @@ const RegiterPage: React.FC = () => {
         url: '/api/user/register', // URL to your API endpoint
         method: 'POST'
     }, { manual: true });
-
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalStatus, setModalStatus] = useState<'processing' | 'success' | 'failure'>('processing');
+    const [modalMessage, setModalMessage] = useState('');
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
     };
@@ -37,6 +40,10 @@ const RegiterPage: React.FC = () => {
             alert("Passwords do not match!");
             return;
         }
+
+        setModalOpen(true);
+        setModalStatus('processing');
+        setModalMessage('Processing your registration...');
 
         try {
             const response = await executePost({
@@ -50,18 +57,21 @@ const RegiterPage: React.FC = () => {
             });
 
             if (response.status === 201) {
-                console.log('Registration successful', response.data);
+                setModalStatus('success');
+                setModalMessage('Registration successful!');
             } else {
                 throw new Error('An error occurred');
             }
         } catch (error: any) {
-            console.error('Registration failed', error.response ? error.response.data : error);
+            setModalStatus('failure');
+            setModalMessage(error.response?.data.error || 'Registration failed.');
         }
     };
 
 
     return (
         <RootLayout>
+            <ModalAPI isOpen={modalOpen} status={modalStatus} message={modalMessage} onClose={() => setModalOpen(false)} />
             <div className="container mx-auto py-24">
                 <div className="w-[300px] md:w-[350px] p-9 bg-white shadow-lg rounded-2xl border m-auto">
                     <p className="text-xl font-black mb-5">Create your account</p>
