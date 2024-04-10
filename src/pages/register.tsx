@@ -39,7 +39,6 @@ const RegiterPage: React.FC = () => {
         }
 
         try {
-            // Using executePost from useAxios
             const response = await executePost({
                 data: {
                     username: userData.username,
