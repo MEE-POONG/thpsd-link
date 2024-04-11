@@ -8,7 +8,7 @@ interface FormState {
   linkBuild: string;
 }
 
-const CreateLinkPage: React.FC = () => {
+const CreateLinkPage: React.FC = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formState, setFormState] = useState<FormState>({ title: '', destination: '', linkBuild: '' });
   const [modalStatus, setModalStatus] = useState('');
@@ -59,7 +59,7 @@ const CreateLinkPage: React.FC = () => {
                     <input type="text"
                       onChange={handleChange}
                       value={formState.title}
-                      name="title" id="title" autoComplete="title" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-md sm:leading-6" placeholder="หัวข้อ" />
+                      name="title" id="title" autoComplete="title" className="block flex-1 border-0 bg-transparent py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-md sm:leading-6" placeholder="หัวข้อ" />
                   </div>
                   <p className="mt-1 text-sm leading-6 text-gray-600">หัวข้อลิงค์นี้</p>
                 </div>
@@ -75,7 +75,7 @@ const CreateLinkPage: React.FC = () => {
                       onChange={handleChange}
                       placeholder="Destination URL"
                       value={formState.destination}
-                      autoComplete="destination" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-md sm:leading-6" />
+                      autoComplete="destination" className="block flex-1 border-0 bg-transparent py-1.5 pl-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-md sm:leading-6" />
                   </div>
                   <p className="mt-1 text-sm leading-6 text-gray-600">Enter the link you want.</p>
                 </div>
@@ -94,7 +94,7 @@ const CreateLinkPage: React.FC = () => {
               >
                 ยืนยัน
               </button>
-              <button type="button" className="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+              <button type="button" className="text-sm font-semibold leading-6 text-gray-100 bg-black px-4 py-2 rounded hover:bg-gray-200 hover:text-red-600">Cancel</button>
               {/* <button type="button" onClick={toggleSuccess} className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Save</button> */}
             </div>
           </div>
