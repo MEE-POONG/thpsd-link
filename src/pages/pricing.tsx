@@ -1,11 +1,18 @@
 import RootLayout from "@/components/RootLayout";
 import TrialShow from "@/container/All/TrialShow";
 import { PriceData } from "@/data/default";
+import { PackageData } from "@prisma/client";
 import Link from "next/link";
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
-const PricingPage: React.FC = () => {
+interface PricingData{
+    pricings: PackageData[];
+}
+
+const PricingPage: React.FC = (props) => {
+
+
     return (
         <RootLayout>
             <section className="pricing-page">
@@ -26,6 +33,8 @@ const PricingPage: React.FC = () => {
                         <h1 className="font-bold text-3xl">Pricing Rates </h1>
                     </div>
                     {/* Card */}
+
+
                     <div className="flex flex-wrap justify-center gap-5">
                         {PriceData.map((item) => (
                             <div key={item?.id} className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
