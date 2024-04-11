@@ -3,29 +3,53 @@ import RootLayoutAccount from '@/components/RootLayoutAcc';
 import { TableLinkData } from '@/data/default';
 import { FaAngleDown, FaCopy, FaSearch, FaTimes } from 'react-icons/fa';
 import useAxios from 'axios-hooks';
-import { LinkListData } from '@prisma/client';
+import axios from 'axios';
+
+interface LinkListData {
+  id: string;
+  title: string;
+  origUrl: string;
+  shortUrl: string;
+  pathShortUrl: string;
+  click: number;
+}
 
 const TableLinkPage: React.FC = (props) => {
 
-  const [{ data: linklistData }, getLinklistData] = useAxios({
-    url: "/api/linklist",
-    method: "GET",
-  });
-
-  const [filteredlinklistData, setFilteredLinklistData] = useState<LinkListData[]>([]);
+  const [linkListData, setLinkListData] = useState<LinkListData[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setFilteredLinklistData(linklistData?.linklist ?? []);
-  }, [linklistData]);
+    const fetchLinkListData = async () => {
+      try {
+        const response = await axios.get<LinkListData[]>('/api/linklist');
+        setLinkListData(response.data);
+      } catch (err: any) {
+        setError(err.message || 'An error occurred while fetching the data.');
+      }
+    };
 
-  const handleCopyLink = async (link: any) => {
+    fetchLinkListData();
+  }, []);
+
+  const handleCopyLink = (url: string) => {
+    navigator.clipboard.writeText(url);
+    alert('Link copied!');
+  };
+
+  const handleDelete = async (id: string) => {
     try {
-      await navigator.clipboard.writeText(link);
-      alert('Success to copy!');
+      await axios.delete(`/api/linklist/${id}`);
+      setLinkListData(prev => prev.filter(link => link.id !== id));
+      alert('Link deleted successfully!');
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      alert('Failed to delete the link.');
     }
   };
+  if (error) return <p>Error: {error}</p>;
+
+
+
   return (
     <RootLayoutAccount>
       <div className="table-link container px-6 mx-auto mt-6 grid">
@@ -59,15 +83,15 @@ const TableLinkPage: React.FC = (props) => {
                   </tr>
                 </thead>
                 <tbody className="bg-grey-light text-center flex flex-col items-center justify-between overflow-y-scroll w-full h-auto md:max-h-[70vh] max-h-[67vh]">
-                  {linklistData?.map((linklist, index) => (
+                  {linkListData.map((link, index) => (
                     <tr key={index} className="flex w-full">
                       <td className="p-2 border border-gray-300 w-14 text-right">{index + 1}</td>
-                      <td className="p-2 border border-gray-300 w-60">{linklist?.title}</td>
-                      <td className="p-2 border border-gray-300 w-60">{linklist?.origUrl}</td>
+                      <td className="p-2 border border-gray-300 w-60">{link?.title}</td>
+                      <td className="p-2 border border-gray-300 w-60">{link?.origUrl}</td>
                       <td className="p-2 border border-gray-300 md:w-full w-60">
-                        {linklist?.shortUrl}
+                        {link?.shortUrl}
                         <button
-                          onClick={() => handleCopyLink(linklist?.shortUrl)}
+                          onClick={() => handleCopyLink(link.shortUrl)}
                           className='ml-2 text-green-500 hover:text-green-800'
                         >
                           <FaCopy />
@@ -75,12 +99,16 @@ const TableLinkPage: React.FC = (props) => {
                       </td>
                       <td className="p-2 border border-gray-300 w-32">
                         <p className="text-md font-medium text-gray-600 dark:text-white">
-                          {linklist?.click}
+                          {link?.click}
                         </p>
                       </td>
                       <td className="p-2 border border-gray-300 w-12 text-center">
-                        <button className='flex justify-center items-center w-full h-full text-red-500 hover:text-red-800'>
-                          <FaTimes className='' />
+                        <button
+                          onClick={() => handleDelete(link.id)}
+                          className='flex justify-center items-center w-full h-full text-red-500 hover:text-red-800'
+                          aria-label="Delete link"
+                        >
+                          <FaTimes />
                         </button>
                       </td>
                     </tr>
@@ -115,8 +143,8 @@ const TableLinkPage: React.FC = (props) => {
                   </a>
                 </li>
               </ul>
-              {/* option select */}
             </nav>
+
             <div className="relative inline-block w-24 text-gray-700">
               <select
                 className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
@@ -128,12 +156,9 @@ const TableLinkPage: React.FC = (props) => {
                 <option>500</option>
                 <option>1000</option>
               </select>
-              <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                <FaAngleDown className='text-black-500' />
-              </div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
     </RootLayoutAccount >
   )
