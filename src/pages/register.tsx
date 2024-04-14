@@ -29,7 +29,7 @@ const RegiterPage: React.FC = () => {
         method: 'POST'
     }, { manual: true });
     const [modalOpen, setModalOpen] = useState(false);
-    const [modalStatus, setModalStatus] = useState<'processing' | 'success' | 'failure'>('processing');
+    const [modalStatus, setModalStatus] = useState<'processing' | 'success' | 'error'>('processing');
     const [modalMessage, setModalMessage] = useState('');
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -63,7 +63,7 @@ const RegiterPage: React.FC = () => {
                 throw new Error('An error occurred');
             }
         } catch (error: any) {
-            setModalStatus('failure');
+            setModalStatus('error');
             setModalMessage(error.response?.data.error || 'Registration failed.');
         }
     };
