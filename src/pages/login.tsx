@@ -14,7 +14,7 @@ const Login: React.FC = () => {
                         <p className="text-sm">Password</p>
                         <input type="text" className="w-full border-b p-1.5 text-base focus:outline-none placeholder:italic placeholder:text-xs" placeholder="Enter Password" />
                     </div>
-                    <button className="py-2 px-4 bg-black hover:bg-white hover:text-black hover:border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-sm font-semibold shadow-md rounded-lg mb-3">
+                    <button className="py-2 px-4 bg-black hover:bg-white hover:text-black border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-sm font-semibold shadow-md rounded-lg mb-3">
                         Login
                     </button>
 
