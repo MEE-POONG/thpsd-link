@@ -3,8 +3,29 @@ import RootLayoutAccount from '@/components/RootLayoutAcc';
 import { PriceData, TableLinkData } from '@/data/default';
 import { FaAngleDown, FaCheckCircle, FaCopy, FaSearch, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
+import { PackageData } from '@prisma/client';
+import axios from 'axios';
 
-const UpgradePage: React.FC = () => {
+
+interface PricingData {
+  packages: PackageData[];
+}
+const UpgradePage: React.FC = (props) => {
+
+  const [packagesData, setPackagesData] = useState<PackageData[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    const fetchLinkListData = async () => {
+      try {
+        const response = await axios.get<PackageData[]>('/api/package');
+        setPackagesData(response.data);
+      } catch (err: any) {
+        setError(err.message || 'An error occurred while fetching the data.');
+      }
+    };
+
+    fetchLinkListData();
+  }, []);
 
   const handleCopyLink = async (link: any) => {
     try {
@@ -17,7 +38,7 @@ const UpgradePage: React.FC = () => {
   return (
     <RootLayoutAccount>
       <div className="upgrade container mx-auto mt-6 grid">
-        <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div className="min-w-0 p-10 bg-white rounded-lg shadow-xs dark:bg-gray-800">
           <div className="max-w-screen-xl mx-auto">
             <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
               <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
@@ -34,37 +55,37 @@ const UpgradePage: React.FC = () => {
 
             {/* Card */}
             <div className="flex flex-wrap justify-center gap-5">
-              {PriceData.map((item) => (
-                <div key={item?.id} className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
+              {packagesData.map((packages, index) => (
+                <div key={index} className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
                   <p className="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
-                    {item?.title}
+                    {packages?.name}
                   </p>
                   <p className="text-3xl font-bold text-gray-900 dark:text-white">
-                    ฿{item?.price}
+                    ฿{packages?.price}
                     <span className="text-sm text-gray-300">
                       / เดือน
                     </span>
                   </p>
                   <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
-                    {item?.subtitle}
+                    {/* {item?.subtitle} */}
                   </p>
-                  <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
-                    <li className="mb-3 flex items-center gap-2 ">
-                      <FaCheckCircle />
-                      {item?.addOn?.linkMax} ลิงค์/เดือน
-                    </li>
-                    <li className="mb-3 flex items-center gap-2 ">
-                      <FaCheckCircle />
-                      {item?.addOn?.qr} QR Code/เดือน
-                    </li>
-                    {item?.addOn?.backoffice ?
-                      <li className="mb-3 flex items-center gap-2 ">
-                        <FaCheckCircle />
-                        ระบบจัดการ
-                      </li>
-                      : ''}
-                  </ul>
-                  <Link href={`/upgrade/${item?.id}`} className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
+                  {/* <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
+                                    <li className="mb-3 flex items-center gap-2 ">
+                                        <FaCheckCircle />
+                                        {item?.addOn?.linkMax} ลิงค์/เดือน
+                                    </li>
+                                    <li className="mb-3 flex items-center gap-2 ">
+                                        <FaCheckCircle />
+                                        {item?.addOn?.qr} QR Code/เดือน
+                                    </li>
+                                    {item?.addOn?.backoffice ?
+                                        <li className="mb-3 flex items-center gap-2 ">
+                                            <FaCheckCircle />
+                                            ระบบจัดการ
+                                        </li>
+                                        : ''}
+                                </ul> */}
+                  <Link href='' className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
                     เลือกแผนนี้
                   </Link>
                 </div>
