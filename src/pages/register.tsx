@@ -1,9 +1,10 @@
 import ModalAPI from "@/components/Modal/ModalAPI";
 import RootLayout from "@/components/RootLayout";
+import { useRouter } from 'next/router';
 import useAxios from "axios-hooks";
 import Link from "next/link";
 import { useState } from "react";
-
+import { User, useUser } from "@/context/UserLogin";
 interface UserData {
     username: string;
     firstname: string;
@@ -14,6 +15,8 @@ interface UserData {
 }
 
 const RegiterPage: React.FC = () => {
+    const router = useRouter();
+    const { login } = useUser()!;
 
     const [userData, setUserData] = useState<UserData>({
         username: '',
@@ -34,39 +37,33 @@ const RegiterPage: React.FC = () => {
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
     };
-
+   
     const handleSubmit = async () => {
         if (userData.password !== userData.confirmPassword) {
             alert("Passwords do not match!");
             return;
         }
-
         setModalOpen(true);
         setModalStatus('processing');
         setModalMessage('Processing your registration...');
-
         try {
             const response = await executePost({
-                data: {
-                    username: userData.username,
-                    firstname: userData.firstname,
-                    lastname: userData.lastname,
-                    email: userData.email,
-                    password: userData.password
-                }
+                data: userData
             });
-
             if (response.status === 201) {
-                setModalStatus('success');
-                setModalMessage('Registration successful!');
+                const userResponse: User = response.data.user; // Adjust based on actual API response
+                login(userResponse);  // Update context with user info
+                router.push('/management');
             } else {
-                throw new Error('An error occurred');
+                throw new Error('An error occurred during registration');
             }
         } catch (error: any) {
             setModalStatus('error');
             setModalMessage(error.response?.data.error || 'Registration failed.');
+            console.error('Error:', error);
         }
     };
+
 
 
     return (

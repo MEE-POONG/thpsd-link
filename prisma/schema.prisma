@@ -23,8 +23,8 @@ model AdminData {
 
 model UserData {
   id            String         @id @default(auto()) @map("_id") @db.ObjectId
-  username      String?
-  password      String?
+  username      String?        @unique
+  password      String?        @unique
   firstname     String?
   lastname      String?
   email         String         @unique

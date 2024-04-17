@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaBars, FaBell, FaCog, FaMoon, FaRegUserCircle, FaSearch, FaSignOutAlt, FaSun } from 'react-icons/fa';
 import ProfileDownDrop from '@/container/ProfileDropDown';
 import NotificationDropDown from '@/container/NotificationDropDown';
 import { ButtonSlidebar } from './TheSlidebar';
+import { useUser } from '@/context/UserLogin';
+import { useRouter } from 'next/router';
 
 const TheNavbarAcc: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const { user } = useUser() ?? { user: null }; // Handle potential null context
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check if there is no user and we are not on the login page already
+    if (!user && router.pathname !== '/login') {
+      router.push('/login');
+    }
+  }, [user, router]);
+
+  // If there's no user, you can also return null or a placeholder here
+  // to avoid rendering the navbar until we redirect
+  if (!user) return null;
 
   return (
     <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
