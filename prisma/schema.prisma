@@ -59,6 +59,7 @@ model PackageData {
   name        String
   price       Float
   setlink     String?
+  setQR       String?
   createdAt   DateTime      @default(now())
   createdBy   String
   updateAt    DateTime      @updatedAt
