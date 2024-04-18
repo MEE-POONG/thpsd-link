@@ -5,7 +5,7 @@ export const NavDefault = [
     { name: 'pricing', href: '/pricing', current: false },
 ];
 export const NavAccount = [
-    { name: 'home', icon: <FaHome className="w-5 h-5" />, href: '/management/home', head: false },
+    { name: 'home', icon: <FaHome className="w-5 h-5" />, href: '/management', head: false },
     { name: 'create link', icon: <FaLink className="w-5 h-5" />, href: '/management/createlink', head: false },
     { name: 'list link', icon: <FaList />, href: '/management/tableLink', head: false },
     { name: 'payment', icon: <FaDonate />, href: '/management/payment', head: false },
