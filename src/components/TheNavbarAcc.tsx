@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaBars, FaBell, FaCog, FaMoon, FaRegUserCircle, FaSearch, FaSignOutAlt, FaSun } from 'react-icons/fa';
 import ProfileDownDrop from '@/container/ProfileDropDown';
 import NotificationDropDown from '@/container/NotificationDropDown';
 import { ButtonSlidebar } from './TheSlidebar';
 
 const TheNavbarAcc: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+
 
   return (
     <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
