@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import RootLayout from "@/components/RootLayout";
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import { User, useUser } from "@/context/UserLogin";
+import useAxios from 'axios-hooks';
 
 interface LoginState {
     username: string;
@@ -11,8 +13,12 @@ interface LoginState {
 const Login: React.FC = () => {
     const [loginState, setLoginState] = useState<LoginState>({ username: '', password: '' });
     const [error, setError] = useState<string | null>(null);
+    const { login } = useUser()!;
     const router = useRouter();
-
+    const [{ data: postData, loading: postLoading, error: postError }, executePost] = useAxios({
+        url: '/api/user/login',
+        method: 'POST'
+    }, { manual: true });
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setLoginState(prevState => ({
@@ -25,15 +31,14 @@ const Login: React.FC = () => {
         setError(null);
         if (loginState.username && loginState.password) {
             try {
-                const response = await fetch('/api/user/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(loginState)
+                const response = await executePost({
+                    method: "POST",
+                    data: loginState
                 });
-                if (response.ok) {
-                    const data = await response.json();
-                    safeGetItem('userAcc', data.token);  // Store token in localStorage
-                    // further actions
+                if (response.status === 200) {
+                    const userResponse: User = response.data.user;
+                    login(userResponse);
+                    router.push('/management');
                 } else {
                     setError('Invalid username or password');
                 }

@@ -58,7 +58,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     updateBy: newUser.updateBy
                 };
 
-                res.status(201).json({ message: 'User created successfully', user:userDataToSend });
+                res.status(201).json({ message: 'User created successfully', user: userDataToSend });
             } catch (error) {
                 res.status(500).json({ error: "An error occurred while creating the user." });
             }

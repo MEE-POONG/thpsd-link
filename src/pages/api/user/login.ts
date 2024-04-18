@@ -42,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     updateBy: user.updateBy
                 };
 
-                res.status(200).json({ message: 'Login successful. User authenticated.', userData: userDataToSend });
+                res.status(200).json({ message: 'Login successful. User authenticated.', user: userDataToSend });
 
             } catch (error) {
                 res.status(500).json({ error: 'Server error during login process.' });
