@@ -64,22 +64,22 @@ const PricingPage: React.FC = (props) => {
                                 <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
                                     {/* {item?.subtitle} */}
                                 </p>
-                                {/* <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
+                                <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
                                     <li className="mb-3 flex items-center gap-2 ">
                                         <FaCheckCircle />
-                                        {item?.addOn?.linkMax} ลิงค์/เดือน
+                                        {packages.setlink} ลิงค์/เดือน
                                     </li>
                                     <li className="mb-3 flex items-center gap-2 ">
                                         <FaCheckCircle />
-                                        {item?.addOn?.qr} QR Code/เดือน
+                                        {packages.setQR} QR Code/เดือน
                                     </li>
-                                    {item?.addOn?.backoffice ?
+                                    {/* {packages ?
                                         <li className="mb-3 flex items-center gap-2 ">
                                             <FaCheckCircle />
                                             ระบบจัดการ
                                         </li>
-                                        : ''}
-                                </ul> */}
+                                        : ''} */}
+                                </ul>
                                 <Link href='' className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
                                     เลือกแผนนี้
                                 </Link>
