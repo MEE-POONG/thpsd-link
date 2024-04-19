@@ -41,7 +41,3 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             res.status(405).end(`Method ${method} Not Allowed`);
     }
 }
-function generateShortUrl(url: string): string {
-    // Simple hash function or use a library like shortid
-    return `https://thpsd.com/s/${Buffer.from(url).toString('base64').slice(0, 8)}`;
-}
