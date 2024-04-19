@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 const RootLayoutAccount: React.FC<LayoutProps> = ({ children }) => {
-  const { user, login, logout } = useUser();
+  const { user } = useUser();
   const router = useRouter();
 
   useEffect(() => {
