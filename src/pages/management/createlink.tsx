@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import RootLayoutAccount from '@/components/RootLayoutAcc';
-import ModalStatus from '@/container/createlink/ModalStatus';
+import ModalAPI from "@/components/Modal/ModalAPI";
 import Swal from 'sweetalert2';
 import useAxios from 'axios-hooks';
 import axios from 'axios';
@@ -16,7 +16,8 @@ const CreateLinkPage: React.FC = (props) => {
   const { user } = useUser();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formState, setFormState] = useState<FormState>({ title: '', origUrl: '', linkBuild: '' });
-  const [modalStatus, setModalStatus] = useState('');
+  const [modalStatus, setModalStatus] = useState<'processing' | 'success' | 'error'>('processing');
+  const [modalMessage, setModalMessage] = useState('');
   const [{ data, loading, error }, executePost] = useAxios({
     url: '/api/linklist',
     method: 'POST'
@@ -28,66 +29,59 @@ const CreateLinkPage: React.FC = (props) => {
   };
 
   const handleConfirm = async () => {
-    if (formState.origUrl) {
-      try {
-        // ขอข้อมูล URL ย่อจาก API ภายนอก
-        const shortUrlResponse = await axios.post('https://thpsd.com/api/short', {
-          origUrl: formState.origUrl
-        });
+    setIsModalOpen(true);
+    setModalMessage('Processing your registration...');
+    try {
+      // Simulate API call to get the shortened URL
+      const shortUrlResponse = await axios.post('https://thpsd.com/api/short', {
+        origUrl: formState.origUrl
+      });
 
-        // รับข้อมูล shortUrl และ pathShortUrl
-        const { shortUrl, urlId } = shortUrlResponse.data;
+      // Handle the response and update form state
+      setFormState(prevState => ({
+        ...prevState,
+        linkBuild: shortUrlResponse.data.shortUrl
+      }));
 
-        // ประกอบข้อมูลที่จะส่งไปยัง API ของคุณ
-        const postData = {
-          title: formState.title,
-          origUrl: formState.origUrl,
-          shortUrl: shortUrl,
-          pathShortUrl: urlId,
-          createdBy: user?.id,  // หรือ user.username ขึ้นอยู่กับว่าต้องการใช้อะไร
-          updateBy: user?.id,   // หรือ user.username
-          userId: user?.id
-        };
+      setModalMessage('Short URL created to!');
 
-        // ส่งข้อมูลไปบันทึกที่ API ของคุณ
-        const response = await executePost({
-          data: postData
-        });
+      const { shortUrl, urlId } = shortUrlResponse.data;
 
-        // ตรวจสอบสถานะการบันทึกและแสดง Modal
-        if (response.status === 201) {
-          setIsModalOpen(true);
-          setModalStatus('Success');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Failed to create the link.',
-        });
-      }
-    } else {
+      const postData = {
+        title: formState.title,
+        origUrl: formState.origUrl,
+        shortUrl: shortUrl,
+        pathShortUrl: urlId,
+        createdBy: user?.id,
+        updateBy: user?.id,
+        userId: user?.id
+      };
+
+      await executePost({
+        data: postData
+
+      });
+
+      setModalMessage('created successfully!');
+
+      setModalStatus('success');
+      setFormState({ title: '', origUrl: '', linkBuild: '' });
+
+      // Optionally close the modal after a delay
+      setTimeout(() => {
+        setIsModalOpen(false);
+      }, 2000); // 2 seconds delay
+    } catch (error) {
+      console.error('Error:', error);
+      setModalMessage('Failed to create the link.');
+      setModalStatus('error');
       Swal.fire({
         icon: 'error',
-        title: 'Validation Error',
-        text: 'Please fill in the required fields.',
+        title: 'Error',
+        text: 'Failed to create the link.',
       });
     }
   };
-
-
-  useEffect(() => {
-    if (modalStatus !== '') {
-      setIsModalOpen(true);
-    }
-  }, [modalStatus]);
-
-  useEffect(() => {
-    if (!isModalOpen) {
-      setModalStatus('');
-    }
-  }, [isModalOpen]);
 
 
   return (
@@ -129,12 +123,6 @@ const CreateLinkPage: React.FC = (props) => {
               </div>
             </div>
             <div className="mt-6 flex items-center justify-end gap-x-6">
-              {/* <button
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
-                onClick={() => setIsModalOpen(true)}
-              >
-                Open Modal
-              </button> */}
               <button
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
                 onClick={handleConfirm}
@@ -144,13 +132,11 @@ const CreateLinkPage: React.FC = (props) => {
               <button type="button" className="text-sm font-semibold leading-6 text-gray-100 bg-black px-4 py-2 rounded hover:bg-gray-200 hover:text-red-600">
                 Cancel
               </button>
-              {/* <button type="button" onClick={toggleSuccess} className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Save</button> */}
             </div>
           </div>
         </div>
       </div>
-      {/* <ModalStatus isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} dataState={formState} statusCheck={modalStatus} /> */}
-      {/* <ModalIndex isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
+      <ModalAPI isOpen={isModalOpen} status={modalStatus} message={modalMessage} onClose={() => setIsModalOpen(false)} />
     </RootLayoutAccount >
   )
 }
