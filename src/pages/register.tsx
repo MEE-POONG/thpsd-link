@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import useAxios from "axios-hooks";
 import Link from "next/link";
 import { useState } from "react";
-import { User, useUser } from "@/context/UserLogin";
+import { User, useUser } from "@/context/UserContext";
 interface UserData {
     username: string;
     firstname: string;
