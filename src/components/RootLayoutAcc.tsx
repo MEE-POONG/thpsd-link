@@ -21,16 +21,20 @@ export const metadata: Metadata = {
 }
 
 const RootLayoutAccount: React.FC<LayoutProps> = ({ children }) => {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
   const router = useRouter();
-
   useEffect(() => {
-    console.log(user);
+    if (!isLoading && !user && router.pathname !== '/login') {
+      router.push('/login');
+    }
+    console.log(user, " : ",isLoading);
+    
+  }, [user, isLoading, router]);
 
-    // if (!user && router.pathname !== '/login') {
-    //   router.push('/login');
-    // }
-  }, [user]);
+  if (isLoading) {
+    return <div>Loading...</div>; // Optionally handle the loading state visually
+  }
+
 
   // if (!user) {
   //   return null; // or a loading indicator until the redirect kicks in

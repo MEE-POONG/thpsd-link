@@ -8,6 +8,7 @@ export interface UserData {  // Notice the export keyword here
 }
 interface UserContextType {
   user: UserData | null;
+  isLoading: boolean; // Ensure this is included
   setUser: (user: UserData | null) => void;
   login: (userData: UserData) => void;
   logout: () => void;
@@ -15,14 +16,16 @@ interface UserContextType {
 
 const UserContext = createContext<UserContextType | null>(null);
 
-export const UserProvider: React.FC<{children: ReactNode}> = ({ children }) => {
+export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<UserData | null>(null);
+  const [isLoading, setIsLoading] = useState(true); // Define isLoading here
 
   useEffect(() => {
     const storedUserData = localStorage.getItem('user');
     if (storedUserData) {
       setUser(JSON.parse(storedUserData));
     }
+    setIsLoading(false);
   }, []);
 
   const login = (userData: UserData) => {
@@ -36,7 +39,7 @@ export const UserProvider: React.FC<{children: ReactNode}> = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser, login, logout }}>
+    <UserContext.Provider value={{ user, isLoading, setUser, login, logout }}>
       {children}
     </UserContext.Provider>
   );
