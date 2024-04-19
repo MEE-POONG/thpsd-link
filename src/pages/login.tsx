@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import RootLayout from "@/components/RootLayout";
 import Link from "next/link";
 import { useRouter } from 'next/router';
-import { User, useUser } from "@/context/UserLogin";
+import { User, useUser } from "@/context/UserContext";
 import useAxios from 'axios-hooks';
 
 interface LoginState {

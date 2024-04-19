@@ -3,10 +3,9 @@ import type { Metadata } from 'next'
 import TheNavbarAcc from './TheNavbarAcc'
 import { Kanit } from 'next/font/google'
 import TheSlidebar from './TheSlidebar';
-import { useUser } from '@/context/UserLogin';
+import { useUser } from '@/context/UserContext';
 import { useRouter } from 'next/router';
 // import TheFooter from './TheFooter';
-
 const kanit = Kanit({
   weight: '400',
   subsets: ['latin'],
@@ -22,20 +21,20 @@ export const metadata: Metadata = {
 }
 
 const RootLayoutAccount: React.FC<LayoutProps> = ({ children }) => {
-
-  const { user } = useUser() ?? { user: null }; // Handle potential null context
+  const { user, login, logout } = useUser();
   const router = useRouter();
 
   useEffect(() => {
-    // Check if there is no user and we are not on the login page already
-    if (!user && router.pathname !== '/login') {
-      router.push('/login');
-    }
-  }, [user, router]);
+    console.log(user);
 
-  // If there's no user, you can also return null or a placeholder here
-  // to avoid rendering the navbar until we redirect
-  if (!user) return null;
+    // if (!user && router.pathname !== '/login') {
+    //   router.push('/login');
+    // }
+  }, [user]);
+
+  // if (!user) {
+  //   return null; // or a loading indicator until the redirect kicks in
+  // }
 
   return (
     <div className={`${kanit.className} flex h-screen bg-gray-50 dark:bg-gray-900`}

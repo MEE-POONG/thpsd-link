@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import '@/sass/globals.scss';
-import { UserProvider } from '@/context/UserLogin';  // Adjust the import path as necessary
+import { UserProvider } from '@/context/UserContext';  // Adjust the import path as necessary
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

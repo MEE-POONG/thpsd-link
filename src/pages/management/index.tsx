@@ -1,12 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import RootLayoutAccount from '@/components/RootLayoutAcc';
 import AlertsImportant from '@/container/Home/AlertsImportant';
 import SummaryCard from '@/container/Home/SummaryCard';
 import TotalUsage from '@/container/Home/TotalUsage';
-import { useUser } from '@/context/UserLogin';
+import { useUser } from '@/context/UserContext';
+import useAxios from 'axios-hooks';
+import Swal from 'sweetalert2';
 
 const ManagementPage: React.FC = () => {
   const { user } = useUser() ?? { user: null }; // Handle potential null context
+  const [origUrl, setOrigUrl] = useState('');
+  const [{ data, loading, error }, executePost] = useAxios(
+    {
+      url: '/api/links',
+      method: 'POST'
+    },
+    { manual: true } // This option is necessary to trigger the request manually
+  );
+  const [shortUrl, setShortUrl] = useState<string | null>(null);
 
   useEffect(() => {
     if (user) {
@@ -15,7 +26,36 @@ const ManagementPage: React.FC = () => {
       console.log("No user data available.");
     }
   }, [user]);
+  // const [loading, setLoading] = useState(false);
 
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!origUrl) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'Please enter a URL before submitting!',
+      });
+      return;
+    }
+
+    executePost({
+      data: { origUrl }
+    }).then(response => {
+      setOrigUrl(''); // Clear the input after success
+    }).catch(error => {
+      console.error('Error creating short link:', error);
+    });
+  };
+  useEffect(() => {
+    if (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Failed to create short link!',
+      });
+    }
+  }, [error]);
 
   return (
     <RootLayoutAccount>
@@ -29,11 +69,6 @@ const ManagementPage: React.FC = () => {
         <SummaryCard />
         {/* แสดงข้อมูลผู้ใช้ที่ได้จาก context */}
         {/* Display user information if available */}
-        {user ? (
-          <p>User Account: {user.username} - {user.email}</p> // Displaying username and email as example
-        ) : (
-          <p>No user data available.</p>
-        )}
       </div>
     </RootLayoutAccount >
   );

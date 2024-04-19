@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import useAxios from "axios-hooks";
 import Link from "next/link";
 import { useState } from "react";
-import { User, useUser } from "@/context/UserLogin";
+import { User, useUser } from "@/context/UserContext";
 interface UserData {
     username: string;
     firstname: string;
@@ -12,6 +12,14 @@ interface UserData {
     email: string;
     password: string;
     confirmPassword: string;
+}
+interface ValidationErrors {
+    username?: string;
+    firstname?: string;
+    lastname?: string;
+    email?: string;
+    password?: string;
+    confirmPassword?: string;
 }
 
 const RegiterPage: React.FC = () => {
@@ -26,6 +34,54 @@ const RegiterPage: React.FC = () => {
         password: '',
         confirmPassword: ''
     });
+    const [errors, setErrors] = useState<ValidationErrors>({});
+
+    const validate = (): boolean => {
+        let valid = true;
+        let newErrors: ValidationErrors = {};
+
+        if (!userData.username.trim()) {
+            newErrors.username = 'Username is required.';
+            valid = false;
+        } else if (userData.username.length < 6) {
+            newErrors.username = 'Username must be at least 6 characters long.';
+            valid = false;
+        }
+
+        if (!userData.firstname.trim()) {
+            newErrors.firstname = 'Firstname is required.';
+            valid = false;
+        }
+
+        if (!userData.lastname.trim()) {
+            newErrors.lastname = 'Lastname is required.';
+            valid = false;
+        }
+
+        if (!userData.email.trim()) {
+            newErrors.email = 'Email is required.';
+            valid = false;
+        } else if (!/\S+@\S+\.\S+/.test(userData.email)) {
+            newErrors.email = 'Email is invalid.';
+            valid = false;
+        }
+
+        if (!userData.password) {
+            newErrors.password = 'Password is required.';
+            valid = false;
+        } else if (userData.password.length < 8) {
+            newErrors.password = 'Password must be at least 8 characters long.';
+            valid = false;
+        }
+
+        if (userData.password !== userData.confirmPassword) {
+            newErrors.confirmPassword = 'Passwords do not match.';
+            valid = false;
+        }
+
+        setErrors(newErrors);
+        return valid;
+    };
 
     const [{ data: postData, loading: postLoading, error: postError }, executePost] = useAxios({
         url: '/api/user/register', // URL to your API endpoint
@@ -37,8 +93,9 @@ const RegiterPage: React.FC = () => {
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
     };
-   
+
     const handleSubmit = async () => {
+        if (!validate()) return;
         if (userData.password !== userData.confirmPassword) {
             alert("Passwords do not match!");
             return;
@@ -77,12 +134,16 @@ const RegiterPage: React.FC = () => {
                             <p className="text-sm">Username</p>
                             <input
                                 type="text"
+                                id="username"
                                 name="username"
                                 value={userData.username}
                                 onChange={handleInput}
-                                className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
+                                className="w-full border-b p-1.5 text-base mb-1 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter Username"
+                                aria-invalid={!!errors.username}
+                                aria-describedby="usernameError"
                             />
+                            {errors.username && <p id="usernameError" className="text-red-500 text-xs italic">{errors.username}</p>}
                         </div>
                         <div>
                             <p className="text-sm">Firstname</p>
@@ -94,6 +155,7 @@ const RegiterPage: React.FC = () => {
                                 className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter Firstname"
                             />
+                            {errors.firstname && <p className="text-red-500 text-xs italic">{errors.firstname}</p>}
                         </div>
                         <div>
                             <p className="text-sm">Lastname</p>
@@ -105,6 +167,7 @@ const RegiterPage: React.FC = () => {
                                 className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter Lastname"
                             />
+                            {errors.lastname && <p className="text-red-500 text-xs italic">{errors.lastname}</p>}
                         </div>
                         <div className="md:col-span-2">
                             <p className="text-sm">E-Mail</p>
@@ -116,6 +179,8 @@ const RegiterPage: React.FC = () => {
                                 className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter E-Mail"
                             />
+                            {errors.email && <p className="text-red-500 text-xs italic">{errors.email}</p>}
+
                         </div>
                         <div>
                             <p className="text-sm">Password</p>
@@ -127,6 +192,8 @@ const RegiterPage: React.FC = () => {
                                 className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter Password"
                             />
+                            {errors.password && <p className="text-red-500 text-xs italic">{errors.password}</p>}
+
                         </div>
                         <div>
                             <p className="text-sm">Confirm-Password</p>
@@ -138,6 +205,8 @@ const RegiterPage: React.FC = () => {
                                 className="w-full border-b p-1.5 text-base mb-5 focus:outline-none placeholder:italic placeholder:text-xs"
                                 placeholder="Enter Password"
                             />
+                            {errors.confirmPassword && <p className="text-red-500 text-xs italic">{errors.confirmPassword}</p>}
+
                         </div>
                     </div>
                     <button onClick={handleSubmit} className="py-2 px-4 bg-black hover:bg-white hover:text-black border-2 hover:border-black text-white w-full transition ease-in duration-200 text-center text-sm font-semibold shadow-md rounded-lg mb-3">
