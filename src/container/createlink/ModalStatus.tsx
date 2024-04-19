@@ -6,7 +6,7 @@ interface ModalProps {
     onClose: () => void;
     dataState: {
         title: string;
-        destination: string;
+        origUrl: string;
         linkBuild: string;
     };
     statusCheck: string;

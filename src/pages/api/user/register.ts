@@ -46,6 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                 // Prepare data to send back
                 const userDataToSend = {
+                    id: newUser.id,
                     username: newUser.username,
                     firstname: newUser.firstname,
                     lastname: newUser.lastname,

@@ -30,6 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                 // สร้างข้อมูลที่ต้องการส่งกลับไปหลังจากผู้ใช้เข้าสู่ระบบสำเร็จ
                 const userDataToSend = {
+                    id: user.id,
                     username: user.username,
                     firstname: user.firstname,
                     lastname: user.lastname,
