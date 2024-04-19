@@ -19,7 +19,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case 'POST':
             const { title, origUrl, shortUrl, pathShortUrl, userId } = req.body;
             try {
-                // const shortUrl = generateShortUrl(origUrl);
                 const link = await prisma.linkListData.create({
                     data: {
                         title,
