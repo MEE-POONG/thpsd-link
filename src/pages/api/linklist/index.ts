@@ -17,15 +17,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
             break;
         case 'POST':
-            const { origUrl, userId } = req.body;
+            const { title, origUrl, shortUrl, pathShortUrl, userId } = req.body;
             try {
-                const shortUrl = generateShortUrl(origUrl);
+                // const shortUrl = generateShortUrl(origUrl);
                 const link = await prisma.linkListData.create({
                     data: {
+                        title,
                         origUrl,
                         shortUrl,
-                        createdBy: userId || 'system', // Assume a default system user
-                        updateBy: userId || 'system'
+                        pathShortUrl,
+                        createdBy: 'system', // Assume a default system user
+                        updateBy: 'system',
+                        userId
                     }
                 });
                 res.status(201).json(link);
