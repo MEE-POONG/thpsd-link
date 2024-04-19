@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import RootLayoutAccount from '@/components/RootLayoutAcc';
 import { TableLinkData } from '@/data/default';
 import { FaAngleDown, FaCopy, FaSearch, FaTimes } from 'react-icons/fa';
-import useAxios from 'axios-hooks';
 import axios from 'axios';
 import PageSelect from '@/components/Pagination';
+
 
 interface LinkListData {
   id: string;
