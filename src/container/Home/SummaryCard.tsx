@@ -13,7 +13,7 @@ const SummaryCard: React.FC = () => {
                         Getting started with Bitly
                     </h2>
                     <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                        <Link href={`/createlink`} className="p-1 mr-3 rounded border-2 border-purple-500 text-purple-500 hover:bg-purple-200">
+                        <Link href={`/management/createlink`} className="p-1 mr-3 rounded border-2 border-purple-500 text-purple-500 hover:bg-purple-200">
                             Create a link
                         </Link>
                         สร้างลิงค์ใหม่

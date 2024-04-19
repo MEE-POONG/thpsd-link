@@ -27,8 +27,6 @@ const RootLayoutAccount: React.FC<LayoutProps> = ({ children }) => {
     if (!isLoading && !user && router.pathname !== '/login') {
       router.push('/login');
     }
-    console.log(user, " : ",isLoading);
-    
   }, [user, isLoading, router]);
 
   if (isLoading) {
