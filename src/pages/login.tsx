@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import RootLayout from "@/components/RootLayout";
 import Link from "next/link";
 import { useRouter } from 'next/router';
-import { User, useUser } from "@/context/UserContext";
+import { UserData, useUser } from "@/context/UserContext";  
 import useAxios from 'axios-hooks';
 
 interface LoginState {
@@ -36,7 +36,7 @@ const Login: React.FC = () => {
                     data: loginState
                 });
                 if (response.status === 200) {
-                    const userResponse: User = response.data.user;
+                    const userResponse: UserData = response.data.user;
                     login(userResponse);
                     router.push('/management');
                 } else {

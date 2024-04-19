@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import useAxios from "axios-hooks";
 import Link from "next/link";
 import { useState } from "react";
-import { User, useUser } from "@/context/UserContext";
-interface UserData {
+import { UserData, useUser } from "@/context/UserContext";
+interface UserForm {
     username: string;
     firstname: string;
     lastname: string;
@@ -26,7 +26,7 @@ const RegiterPage: React.FC = () => {
     const router = useRouter();
     const { login } = useUser()!;
 
-    const [userData, setUserData] = useState<UserData>({
+    const [userData, setUserData] = useState<UserForm>({
         username: '',
         firstname: '',
         lastname: '',
@@ -108,8 +108,14 @@ const RegiterPage: React.FC = () => {
                 data: userData
             });
             if (response.status === 201) {
-                const userResponse: User = response.data.user; // Adjust based on actual API response
-                login(userResponse);  // Update context with user info
+                // Assuming the API sends back the data in the format needed by login
+                const userResponse: UserData = {
+                    id: response.data.id,  // Ensure your API sends back an 'id'
+                    username: response.data.user.username,
+                    email: response.data.user.email,
+                    token: response.data.token, 
+                };
+                login(userResponse);
                 router.push('/management');
             } else {
                 throw new Error('An error occurred during registration');

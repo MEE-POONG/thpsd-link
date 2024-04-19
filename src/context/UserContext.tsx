@@ -1,34 +1,31 @@
 // context/UserContext.tsx
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-
-interface User {
+export interface UserData {  // Notice the export keyword here
   id: string;
   username: string;
   email: string;
   token: string;
 }
-
 interface UserContextType {
-  user: User | null;
-  setUser: (user: User | null) => void;
-  login: (userData: User) => void;
+  user: UserData | null;
+  setUser: (user: UserData | null) => void;
+  login: (userData: UserData) => void;
   logout: () => void;
 }
 
 const UserContext = createContext<UserContextType | null>(null);
 
 export const UserProvider: React.FC<{children: ReactNode}> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserData | null>(null);
 
   useEffect(() => {
-    // Load the user data from localStorage when the provider is initialized
     const storedUserData = localStorage.getItem('user');
     if (storedUserData) {
       setUser(JSON.parse(storedUserData));
     }
   }, []);
 
-  const login = (userData: User) => {
+  const login = (userData: UserData) => {
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData));
   };
