@@ -13,6 +13,7 @@ interface PricingData {
 
 const PricingPage: React.FC = (props) => {
 
+
     const [packagesData, setPackagesData] = useState<PackageData[]>([]);
     const [error, setError] = useState<string | null>(null);
     useEffect(() => {
@@ -27,6 +28,15 @@ const PricingPage: React.FC = (props) => {
 
         fetchLinkListData();
     }, []);
+
+    const handleCopyLink = async (link: any) => {
+        try {
+            await navigator.clipboard.writeText(link);
+            alert('Success to copy!');
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    };
 
     return (
         <RootLayout>
@@ -47,8 +57,8 @@ const PricingPage: React.FC = (props) => {
                         <img width="35" height="35" src="https://img.icons8.com/office/30/price-tag.png" alt="price-tag" />
                         <h1 className="font-bold text-3xl">Pricing Rates </h1>
                     </div>
-                    {/* Card */}
 
+                    {/* Card */}
                     <div className="flex flex-wrap justify-center gap-5">
                         {packagesData.map((packages, index) => (
                             <div key={index} className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
@@ -62,8 +72,9 @@ const PricingPage: React.FC = (props) => {
                                     </span>
                                 </p>
                                 <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
-                                    {/* {item?.subtitle} */}
+
                                 </p>
+
                                 <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
                                     <li className="mb-3 flex items-center gap-2 ">
                                         <FaCheckCircle />
@@ -73,13 +84,14 @@ const PricingPage: React.FC = (props) => {
                                         <FaCheckCircle />
                                         {packages.setQR} QR Code/เดือน
                                     </li>
-                                    {/* {packages ?
-                                        <li className="mb-3 flex items-center gap-2 ">
-                                            <FaCheckCircle />
-                                            ระบบจัดการ
-                                        </li>
-                                        : ''} */}
+                                    {/* {packages.obtainedThree ?
+                        <li className="mb-3 flex items-center gap-2 ">
+                          <FaCheckCircle />
+                          ระบบจัดการ
+                        </li>
+                        : ''} */}
                                 </ul>
+
                                 <Link href='' className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
                                     เลือกแผนนี้
                                 </Link>
@@ -87,43 +99,6 @@ const PricingPage: React.FC = (props) => {
                         ))}
                     </div>
 
-                    {/* <div className="flex flex-wrap justify-center gap-5">
-                        {PriceData.map((item) => (
-                            <div key={item?.id} className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
-                                <p className="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
-                                    {item?.title}
-                                </p>
-                                <p className="text-3xl font-bold text-gray-900 dark:text-white">
-                                    ฿{item?.price}
-                                    <span className="text-sm text-gray-300">
-                                        / เดือน
-                                    </span>
-                                </p>
-                                <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
-                                    {item?.subtitle}
-                                </p>
-                                <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
-                                    <li className="mb-3 flex items-center gap-2 ">
-                                        <FaCheckCircle />
-                                        {item?.addOn?.linkMax} ลิงค์/เดือน
-                                    </li>
-                                    <li className="mb-3 flex items-center gap-2 ">
-                                        <FaCheckCircle />
-                                        {item?.addOn?.qr} QR Code/เดือน
-                                    </li>
-                                    {item?.addOn?.backoffice ?
-                                        <li className="mb-3 flex items-center gap-2 ">
-                                            <FaCheckCircle />
-                                            ระบบจัดการ
-                                        </li>
-                                        : ''}
-                                </ul>
-                                <Link href={`/upgrade/${item?.id}`} className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
-                                    เลือกแผนนี้
-                                </Link>
-                            </div>
-                        ))}
-                    </div> */}
                 </div>
             </section>
             <TrialShow />
