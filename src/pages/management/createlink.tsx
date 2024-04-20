@@ -36,6 +36,7 @@ const CreateLinkPage: React.FC = (props) => {
       const shortUrlResponse = await axios.post('https://thpsd.com/api/short', {
         origUrl: formState.origUrl
       });
+      console.log(shortUrlResponse);
 
       // Handle the response and update form state
       setFormState(prevState => ({
