@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     switch (method) {
         case 'GET':
             try {
-                const link = await prisma.linkListData.findUnique({
+                const link = await prisma.uRLsData.findUnique({
                     where: {
                         id: id as string,
                     },
@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             break;
         case 'PUT':
             try {
-                const link = await prisma.linkListData.update({
+                const link = await prisma.uRLsData.update({
                     where: {
                         id: id as string,
                     },
@@ -38,7 +38,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             break;
         case 'DELETE':
             try {
-                await prisma.linkListData.delete({
+                await prisma.uRLsData.delete({
                     where: {
                         id: id as string,
                     },

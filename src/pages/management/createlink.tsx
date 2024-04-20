@@ -19,7 +19,7 @@ const CreateLinkPage: React.FC = (props) => {
   const [modalStatus, setModalStatus] = useState<'processing' | 'success' | 'error'>('processing');
   const [modalMessage, setModalMessage] = useState('');
   const [{ data, loading, error }, executePost] = useAxios({
-    url: '/api/linklist',
+    url: '/api/short',
     method: 'POST'
   }, { manual: true });
 
@@ -36,23 +36,13 @@ const CreateLinkPage: React.FC = (props) => {
       const shortUrlResponse = await axios.post('https://thpsd.com/api/short', {
         origUrl: formState.origUrl
       });
-      console.log(shortUrlResponse);
-
-      // Handle the response and update form state
-      setFormState(prevState => ({
-        ...prevState,
-        linkBuild: shortUrlResponse.data.shortUrl
-      }));
-
       setModalMessage('Short URL created to!');
-
       const { shortUrl, urlId } = shortUrlResponse.data;
-
       const postData = {
         title: formState.title,
         origUrl: formState.origUrl,
         shortUrl: shortUrl,
-        pathShortUrl: urlId,
+        urlId: urlId,
         createdBy: user?.id,
         updateBy: user?.id,
         userId: user?.id

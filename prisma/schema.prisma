@@ -88,9 +88,9 @@ model VerificationTokenData {
 
 model URLsData {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  v         Int      @map("__v")
-  clicks    Int
-  date      String
+  title     String
+  v         Int      @default(0)
+  clicks    Int      @default(0)
   origUrl   String   @unique
   shortUrl  String
   urlId     String   @unique

@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     switch (method) {
         case 'GET':
             try {
-                const links = await prisma.linkListData.findMany();
+                const links = await prisma.uRLsData.findMany();
                 res.status(200).json(links);
             } catch (error) {
                 console.error(error);
@@ -17,14 +17,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
             break;
         case 'POST':
-            const { title, origUrl, shortUrl, pathShortUrl, userId } = req.body;
+            const { title, origUrl, shortUrl, urlId, userId } = req.body;
             try {
-                const link = await prisma.linkListData.create({
+                const link = await prisma.uRLsData.create({
                     data: {
                         title,
                         origUrl,
                         shortUrl,
-                        pathShortUrl,
+                        urlId,
                         createdBy: 'system', // Assume a default system user
                         updateBy: 'system',
                         userId
