@@ -29,10 +29,14 @@ model UserData {
 }
 
 model AdminData {
-  id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  tel      String
-  user     UserData @relation(fields: [username], references: [username])
-  username String   @unique
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  tel       String
+  user      UserData @relation(fields: [username], references: [username])
+  username  String   @unique
+  createdAt DateTime @default(now())
+  createdBy String
+  updateAt  DateTime @updatedAt
+  updateBy  String
 }
 
 model AccountData {
@@ -49,6 +53,10 @@ model AccountData {
   id_token          String?  @db.String
   session_state     String?
   user              UserData @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt         DateTime @default(now())
+  createdBy         String
+  updateAt          DateTime @updatedAt
+  updateBy          String
 
   @@unique([provider, providerAccountId])
 }
@@ -59,6 +67,10 @@ model SessionData {
   userId       String   @db.ObjectId
   expires      DateTime
   user         UserData @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime @default(now())
+  createdBy    String
+  updateAt     DateTime @updatedAt
+  updateBy     String
 }
 
 model VerificationTokenData {
@@ -66,20 +78,28 @@ model VerificationTokenData {
   identifier String
   token      String   @unique
   expires    DateTime
+  createdAt  DateTime @default(now())
+  createdBy  String
+  updateAt   DateTime @updatedAt
+  updateBy   String
 
   @@unique([identifier, token])
 }
 
 model URLsData {
-  id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  v        Int      @map("__v")
-  clicks   Int
-  date     String
-  origUrl  String   @unique
-  shortUrl String
-  urlId    String   @unique
-  user     UserData @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId   String   @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  v         Int      @map("__v")
+  clicks    Int
+  date      String
+  origUrl   String   @unique
+  shortUrl  String
+  urlId     String   @unique
+  user      UserData @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+  createdBy String
+  updateAt  DateTime @updatedAt
+  updateBy  String
 }
 
 model PackageData {
