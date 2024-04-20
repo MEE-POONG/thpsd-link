@@ -78,7 +78,7 @@ const TableLinkPage: React.FC = (props) => {
                   <tr className="flex w-full">
                     <th className="p-2 border border-gray-300 w-14">No.</th>
                     <th className="p-2 border border-gray-300 w-60">Title</th>
-                    <th className="p-2 border border-gray-300 w-60">Prototype</th>
+                    <th className="p-2 border border-gray-300 w-60">Your Link</th>
                     <th className="p-2 border border-gray-300 md:w-full w-60">Link Build</th>
                     <th className="p-2 border border-gray-300 w-32">Count Use</th>
                     <th className="p-2 border border-gray-300 w-12"></th>
