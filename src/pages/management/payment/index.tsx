@@ -3,7 +3,7 @@ import PaymentDetailsModal from "@/container/PaymentHistory/PaymentDetailsModal"
 import { useState } from "react";
 import { BiReceipt } from "react-icons/bi";
 
-const PaymentHistory: React.FC = () => {
+const PaymentHistory: React.FC = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [modalContent, setModalContent] = useState('');
 
@@ -15,7 +15,7 @@ const PaymentHistory: React.FC = () => {
         <RootLayoutAccount>
             <div className="container mx-auto mt-6 min-w-0 p-4 bg-white rounded-lg shadow-sm">
                 <h2 className="font-semibold text-gray-700 lg:text-xl">
-                    ประวัติการชำระค่าบริการ
+                    Payment History
                 </h2>
                 <div className="block w-full overflow-x-auto mt-6">
                     <table className="items-center bg-transparent w-full border-collapse ">

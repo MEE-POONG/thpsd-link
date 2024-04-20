@@ -60,7 +60,7 @@ const TableLinkPage: React.FC = (props) => {
         <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
           <div className="flex justify-between flex-1">
             <h2 className="font-semibold text-gray-700 dark:text-gray-200 lg:text-xl lx:text-2xl flex items-center">
-              รายการลิงค์
+              Your Linklists.
             </h2>
             <div className="relative w-full lg:w-72 md:w-64 focus-within:text-purple-500">
               <div className="absolute inset-y-0 flex items-center pl-2">
