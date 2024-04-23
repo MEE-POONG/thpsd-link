@@ -41,7 +41,7 @@ const PricingPage: React.FC = (props) => {
     return (
         <RootLayout>
             <section className="pricing-page">
-                <div className="max-w-screen-xl px-4 py-24 mx-auto lg:py-36 lg:px-6">
+                <div className="max-w-screen-xl px-4 mx-auto lg:px-6">
                     <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
                         <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
                             Designed for
@@ -92,7 +92,7 @@ const PricingPage: React.FC = (props) => {
                         : ''} */}
                                 </ul>
 
-                                <Link href='' className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
+                                <Link href='/payment' className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
                                     เลือกแผนนี้
                                 </Link>
                             </div>

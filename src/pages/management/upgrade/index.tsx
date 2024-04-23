@@ -87,7 +87,7 @@ const UpgradePage: React.FC = (props) => {
                         : ''} */}
                     </ul>
                
-                  <Link href='' className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
+                  <Link href='./payment' className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
                     เลือกแผนนี้
                   </Link>
                 </div>

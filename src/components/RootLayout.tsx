@@ -21,9 +21,10 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className={`${kanit.className} `}>
       <TheNavbar />
-      <div className=''/>
-      {children}
-      <TheFooter/>
+      <div className='py-24'>
+        {children}
+      </div>
+      <TheFooter />
     </div>
   )
 }

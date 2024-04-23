@@ -8,7 +8,7 @@ export const NavAccount = [
     { name: 'home', icon: <FaHome className="w-5 h-5" />, href: '/management', head: false },
     { name: 'create link', icon: <FaLink className="w-5 h-5" />, href: '/management/createlink', head: false },
     { name: 'list link', icon: <FaList />, href: '/management/tableLink', head: false },
-    { name: 'payment', icon: <FaDonate />, href: '/management/payment', head: false },
+    { name: 'payment', icon: <FaDonate />, href: '/management/paymentHistory', head: false },
     { name: 'upgrade', icon: <FaUpload />, href: '/management/upgrade', head: false },
     {
         name: 'Requirements', icon: <FaTable />, href: '/management/requirements', head: true, loopPage: [
