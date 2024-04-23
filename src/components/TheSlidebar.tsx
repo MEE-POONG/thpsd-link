@@ -9,8 +9,8 @@ const TheSlidebar: React.FC = () => {
     const isActiveSubPage = (itemHref: string) => router.pathname.startsWith(itemHref);
     return (
         <aside className="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
-            <div className="py-4 text-gray-500 dark:text-gray-400">
-                <Link className="flex items-center ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
+            <div className="py-4 text-gray-800 dark:text-gray-400">
+                <Link className="flex items-center ml-6 text-lg font-bold text-purple-600 dark:text-gray-200" href="#">
                     <img className='w-8' src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="hero image" />
                     <span className='ml-2'>
                         THPsd
@@ -19,7 +19,7 @@ const TheSlidebar: React.FC = () => {
                 <ul className="mt-6">
                     {NavAccount.map((item, index) =>
                         item.head ? (
-                            <li key={index} className={`relative px-6 py-1 text-gray-500 border-l-4 hover:border-purple-600 hover:text-purple-600 dark:hover:text-gray-200 ${isActiveSubPage(item?.href) ? 'text-purple-600 border-purple-600' : ''} `}>
+                            <li key={index} className={`relative px-6 py-1 text-gray-800 border-l-4 hover:border-purple-600 hover:text-purple-600 dark:hover:text-gray-200 ${isActiveSubPage(item?.href) ? 'text-purple-600 border-purple-600' : ''} `}>
                                 <div className={`inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 `}>
                                     {item.icon}
                                     <span className="ml-4">{item.name}</span>
