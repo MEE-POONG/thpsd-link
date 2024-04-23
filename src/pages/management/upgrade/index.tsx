@@ -41,7 +41,7 @@ const UpgradePage: React.FC = (props) => {
         <div className="min-w-0 p-10 bg-white rounded-lg shadow-xs dark:bg-gray-800">
           <div className="max-w-screen-xl mx-auto">
             <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
-              <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-purple-700 dark:text-white">
                 Designed for
                 business teams like yours
               </h2>
@@ -57,10 +57,10 @@ const UpgradePage: React.FC = (props) => {
             <div className="flex flex-wrap justify-center gap-5">
               {packagesData.map((packages, index) => (
                 <div key={index} className="w-64 p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
-                  <p className="mb-4 text-xl font-medium text-gray-800 dark:text-gray-50">
+                  <p className="mb-4 text-xl font-medium text-purple-700 dark:text-gray-50">
                     {packages?.name}
                   </p>
-                  <p className="text-3xl font-bold text-gray-900 dark:text-white">
+                  <p className="text-3xl font-bold text-purple-700 dark:text-white">
                     ฿{packages?.price}
                     <span className="text-sm text-gray-300">
                       / เดือน
@@ -87,7 +87,7 @@ const UpgradePage: React.FC = (props) => {
                         : ''} */}
                     </ul>
                
-                  <Link href='' className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
+                  <Link href='' className="py-2 px-4 block w-full bg-purple-700 hover:bg-white hover:text-purple-700 border-2 border-purple-700 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
                     เลือกแผนนี้
                   </Link>
                 </div>

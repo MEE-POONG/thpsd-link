@@ -14,7 +14,7 @@ const PaymentHistory: React.FC = (props) => {
     return (
         <RootLayoutAccount>
             <div className="container mx-auto mt-6 min-w-0 p-4 bg-white rounded-lg shadow-sm">
-                <h2 className="font-semibold text-gray-700 lg:text-xl">
+                <h2 className="font-semibold text-purple-700 lg:text-xl">
                     Payment History
                 </h2>
                 <div className="block w-full overflow-x-auto mt-6">

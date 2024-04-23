@@ -74,7 +74,7 @@ const CreateLinkPage: React.FC = (props) => {
       <div className="create-link mx-auto mt-6 w-full max-w-screen-md">
         <div className=" container px-6 grid">
           <div className="space-y-12 mt-3 p-4 bg-white">
-            <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
+            <h2 className="text-2xl font-semibold text-purple-700 dark:text-gray-200">
               Welcome, this is your plathtmlForm.
             </h2>
             <div className="">

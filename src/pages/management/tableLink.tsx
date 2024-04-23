@@ -83,7 +83,7 @@ const TableLinkPage: React.FC = () => {
     <RootLayoutAccount>
       <div className="table-link container mx-auto mt-6 grid h-full">
         <div className="flex justify-between flex-1">
-          <h2 className="font-semibold text-gray-700 dark:text-gray-200 lg:text-xl lx:text-2xl flex items-center">
+          <h2 className="font-semibold text-purple-700 dark:text-gray-200 lg:text-xl lx:text-2xl flex items-center">
             Your Linklists
           </h2>
           <div className="relative w-full lg:w-72 md:w-64 focus-within:text-purple-500">

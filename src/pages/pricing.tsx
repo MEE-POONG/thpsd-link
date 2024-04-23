@@ -43,7 +43,7 @@ const PricingPage: React.FC = (props) => {
             <section className="pricing-page">
                 <div className="max-w-screen-xl px-4 py-24 mx-auto lg:py-36 lg:px-6">
                     <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
-                        <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                        <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-purple-700 dark:text-white">
                             Designed for
                             business teams like yours
                         </h2>
