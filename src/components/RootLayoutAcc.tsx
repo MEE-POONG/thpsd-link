@@ -33,10 +33,10 @@ const RootLayoutAccount: React.FC<LayoutProps> = ({ children }) => {
   // }
 
   return (
-    <div className={`${kanit.className} flex bg-gray-50 dark:bg-gray-900`} style={{ height: `calc(100vh - 10px)` }} >
+    <div className={`${kanit.className} flex bg-gray-50 dark:bg-gray-900`} >
       <TheSlidebar />
       {/* <TheTestbar /> */}
-      <div className="flex flex-col flex-1 w-full" style={{ height: `calc(100% - 1.5rem)` }}>
+      <div className="flex flex-col flex-1 w-full h-screen " >
         <TheNavbarAcc />
         {children}
       </div>

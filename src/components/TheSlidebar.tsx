@@ -10,8 +10,11 @@ const TheSlidebar: React.FC = () => {
     return (
         <aside className="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
             <div className="py-4 text-gray-500 dark:text-gray-400">
-                <Link className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-                    Windmill
+                <Link className="flex items-center ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
+                    <img className='w-8' src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/7511fb7d-e4d0-4cfb-ac7a-d76528b5f800/250" alt="hero image" />
+                    <span className='ml-2'>
+                        THPsd
+                    </span>
                 </Link>
                 <ul className="mt-6">
                     {NavAccount.map((item, index) =>
