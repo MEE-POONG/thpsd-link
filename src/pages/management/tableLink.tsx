@@ -56,7 +56,7 @@ const TableLinkPage: React.FC = (props) => {
 
   return (
     <RootLayoutAccount>
-      <div className="table-link container px-6 mx-auto mt-6 grid">
+      <div className="table-link container mx-auto mt-6 grid h-full">
         <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
           <div className="flex justify-between flex-1">
             <h2 className="font-semibold text-gray-700 dark:text-gray-200 lg:text-xl lx:text-2xl flex items-center">
@@ -73,50 +73,6 @@ const TableLinkPage: React.FC = (props) => {
           </div>
           <div className="items-center justify-center py-4">
             <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
-              {/* <table className="text-left w-full border border-gray-300">
-                <thead className="flex w-full text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-xs overflow-y-scroll scroll-cler">
-                  <tr className="flex w-full">
-                    <th className="p-2 border border-gray-300 w-12">No.</th>
-                    <th className="p-2 border border-gray-300 w-1/6">Title</th>
-                    <th className="p-2 border border-gray-300 w-[40%]">Your Link</th>
-                    <th className="p-2 border border-gray-300 w-[30%]">Link Build</th>
-                    <th className="p-2 border border-gray-300 ">Count Use</th>
-                    <th className="p-2 border border-gray-300"></th>
-                  </tr>
-                </thead>
-                <tbody className="bg-grey-light text-center flex flex-col items-center justify-between overflow-y-scroll w-full h-auto md:max-h-[70vh] max-h-[67vh]">
-                  {linkListData.map((link, index) => (
-                    <tr key={index} className="flex w-full">
-                      <td className="p-2 border border-gray-300 w-12 text-right">{index + 1}</td>
-                      <td className="p-2 border border-gray-300 w-1/6">{link?.title}</td>
-                      <td className="p-2 border border-gray-300 w-[40%]">{link?.origUrl}</td>
-                      <td className="p-2 border border-gray-300 w-[30%]">
-                        {link?.shortUrl}
-                        <button
-                          onClick={() => handleCopyLink(link.shortUrl)}
-                          className='ml-2 text-green-500 hover:text-green-800'
-                        >
-                          <FaCopy />
-                        </button>
-                      </td>
-                      <td className="p-2 border border-gray-300 ">
-                        <p className="text-md font-medium text-gray-600 dark:text-white">
-                          {link?.click}dd
-                        </p>
-                      </td>
-                      <td className="p-2 border border-gray-300 text-center">
-                        <button
-                          onClick={() => handleDelete(link.id)}
-                          className='flex justify-center items-center w-full h-full text-red-500 hover:text-red-800'
-                          aria-label="Delete link"
-                        >
-                          <FaTimes />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table> */}
               <table className='tbody-scroll w-full'>
                 <thead className='table w-full table-fixed' style={{ width: `calc( 100% - 1em )` }}>
                   <tr>
@@ -130,7 +86,7 @@ const TableLinkPage: React.FC = (props) => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className='block h-[500px] overflow-y-scroll	'>
+                <tbody className='block h-[600px] overflow-y-scroll	'>
                   {linkListData.map((link, index) => (
                     <tr key={index} className='table w-full table-fixed'>
                       <td className="p-2 border border-gray-300 w-16 text-right">{index + 1}</td>

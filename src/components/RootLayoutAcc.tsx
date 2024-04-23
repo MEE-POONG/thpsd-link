@@ -38,9 +38,7 @@ const RootLayoutAccount: React.FC<LayoutProps> = ({ children }) => {
       {/* <TheTestbar /> */}
       <div className="flex flex-col flex-1 w-full" style={{ height: `calc(100% - 1.5rem)` }}>
         <TheNavbarAcc />
-        <div className="h-full overflow-y-auto">
-          {children}
-        </div>
+        {children}
       </div>
     </div >
   )
