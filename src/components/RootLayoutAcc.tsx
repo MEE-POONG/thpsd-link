@@ -33,18 +33,14 @@ const RootLayoutAccount: React.FC<LayoutProps> = ({ children }) => {
   // }
 
   return (
-    <div className={`${kanit.className} flex h-screen bg-gray-50 dark:bg-gray-900`}
-    // style="{'overflow-hidden': isSideMenuOpen }"
-    >
+    <div className={`${kanit.className} flex bg-gray-50 dark:bg-gray-900`} >
       <TheSlidebar />
       {/* <TheTestbar /> */}
-      <div className="flex flex-col flex-1 w-full">
+      <div className="flex flex-col flex-1 w-full h-screen " >
         <TheNavbarAcc />
-        <main className="h-full overflow-y-auto">
-          {children}
-        </main>
+        {children}
       </div>
-    </div>
+    </div >
   )
 }
 export default RootLayoutAccount;

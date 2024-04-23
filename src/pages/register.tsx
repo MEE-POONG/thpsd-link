@@ -113,9 +113,11 @@ const RegiterPage: React.FC = () => {
                     id: response.data.id,  // Ensure your API sends back an 'id'
                     username: response.data.user.username,
                     email: response.data.user.email,
-                    token: response.data.token, 
+                    token: response.data.token,
                 };
                 login(userResponse);
+                setModalMessage('created successfully!');
+                setModalStatus('success');
                 router.push('/management');
             } else {
                 throw new Error('An error occurred during registration');

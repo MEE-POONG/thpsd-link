@@ -19,7 +19,7 @@ const CreateLinkPage: React.FC = (props) => {
   const [modalStatus, setModalStatus] = useState<'processing' | 'success' | 'error'>('processing');
   const [modalMessage, setModalMessage] = useState('');
   const [{ data, loading, error }, executePost] = useAxios({
-    url: '/api/linklist',
+    url: '/api/short',
     method: 'POST'
   }, { manual: true });
 
@@ -36,23 +36,13 @@ const CreateLinkPage: React.FC = (props) => {
       const shortUrlResponse = await axios.post('https://thpsd.com/api/short', {
         origUrl: formState.origUrl
       });
-      console.log(shortUrlResponse);
-
-      // Handle the response and update form state
-      setFormState(prevState => ({
-        ...prevState,
-        linkBuild: shortUrlResponse.data.shortUrl
-      }));
-
       setModalMessage('Short URL created to!');
-
       const { shortUrl, urlId } = shortUrlResponse.data;
-
       const postData = {
         title: formState.title,
         origUrl: formState.origUrl,
         shortUrl: shortUrl,
-        pathShortUrl: urlId,
+        urlId: urlId,
         createdBy: user?.id,
         updateBy: user?.id,
         userId: user?.id
@@ -68,7 +58,6 @@ const CreateLinkPage: React.FC = (props) => {
       setModalStatus('success');
       setFormState({ title: '', origUrl: '', linkBuild: '' });
 
-      // Optionally close the modal after a delay
       setTimeout(() => {
         setIsModalOpen(false);
       }, 2000); // 2 seconds delay
@@ -76,21 +65,16 @@ const CreateLinkPage: React.FC = (props) => {
       console.error('Error:', error);
       setModalMessage('Failed to create the link.');
       setModalStatus('error');
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Failed to create the link.',
-      });
     }
   };
 
 
   return (
     <RootLayoutAccount>
-      <div className="create-link mx-auto mt-6 max-w-screen-md">
+      <div className="create-link mx-auto mt-6 w-full max-w-screen-md">
         <div className=" container px-6 grid">
           <div className="space-y-12 mt-3 p-4 bg-white">
-            <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
+            <h2 className="text-2xl font-semibold text-purple-700 dark:text-gray-200">
               Welcome, this is your plathtmlForm.
             </h2>
             <div className="">

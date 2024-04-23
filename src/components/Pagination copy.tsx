@@ -1,27 +1,32 @@
 import React from 'react';
-import { GrFormPrevious } from 'react-icons/gr';
 import { MdNavigateNext, MdSkipNext, MdSkipPrevious } from 'react-icons/md';
+import { GrFormPrevious } from "react-icons/gr";
+
 interface PageSelectProps {
     page: number;
-    pageSize: number;
     totalPages: number;
-    onChangePage: (size: number) => void;
+    onChangePage: (page: number) => void;
     onChangePageSize: (size: number) => void;
 }
-const PageSelect: React.FC<PageSelectProps> = ({ page, pageSize, totalPages, onChangePage, onChangePageSize }) => {
 
-    let paginationItems = [];
+const PageSelect: React.FC<PageSelectProps> = ({
+    page,
+    totalPages,
+    onChangePage,
+    onChangePageSize,
+}) => {
+    const paginationItems: JSX.Element[] = [];
 
     let start = page - 2;
     let end = page + 2;
 
     // Adjust the start and end values when they're out of bounds
     if (start < 1) {
-        end += (1 - start);
+        end += 1 - start;
         start = 1;
     }
     if (end > totalPages) {
-        start -= (end - totalPages);
+        start -= end - totalPages;
         end = totalPages;
     }
 
@@ -40,8 +45,9 @@ const PageSelect: React.FC<PageSelectProps> = ({ page, pageSize, totalPages, onC
             );
         }
     }
+
     return (
-        <div className="flex flex-wrap gap-5 items-center justify-center md:justify-between h-max">
+        <div className="flex flex-wrap gap-5 items-center justify-center md:justify-between lg:mt-10 mb-24">
             <div className="flex flex-wrap space-x-2 justify-center drop-shadow-lg">
                 <button
                     className="px-1.5 py-1 md:px-3 md:py-2 rounded bg-gray-200 hover:bg-purple-300 text-gray-700 text-xs md:text-sm cursor-pointer"
@@ -51,7 +57,7 @@ const PageSelect: React.FC<PageSelectProps> = ({ page, pageSize, totalPages, onC
                     <MdSkipPrevious />
                 </button>
                 <button
-                    className="px-1.5 py-1 md:px-3 md:py-2 rounded bg-gray-200 hover:bg-purple-300 text-gray-700 text-xs md:text-sm cursor-pointer"
+                    className="px-1.5 py-1 md:px-3 md:py-2 rounded bg-gray-200 hover:bg-purple-300 text-gray-700 text-xs md:text-sm cursor-pointer" 
                     onClick={() => onChangePage(page - 1)}
                     disabled={page === 1}
                 >
@@ -78,17 +84,14 @@ const PageSelect: React.FC<PageSelectProps> = ({ page, pageSize, totalPages, onC
                 aria-label="Default select example"
                 onChange={(e) => onChangePageSize(Number(e.target.value))}
             >
-                <option selected={pageSize === 10} value="10">10</option>
-                <option selected={pageSize === 20} value="20">20</option>
-                <option selected={pageSize === 30} value="30">30</option>
-                <option selected={pageSize === 50} value="50">50</option>
-                <option selected={pageSize === 100} value="100">100</option>
-                <option selected={pageSize === 300} value="300">300</option>
-                <option selected={pageSize === 500} value="500">500</option>
-                <option selected={pageSize === 1000} value="1000">1000</option>
+                <option>10</option>
+                <option>50</option>
+                <option>100</option>
+                <option>500</option>
+                <option>1000</option>
             </select>
         </div>
     );
-}
+};
 
 export default PageSelect;
