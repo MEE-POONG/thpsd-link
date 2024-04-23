@@ -58,7 +58,6 @@ const CreateLinkPage: React.FC = (props) => {
       setModalStatus('success');
       setFormState({ title: '', origUrl: '', linkBuild: '' });
 
-      // Optionally close the modal after a delay
       setTimeout(() => {
         setIsModalOpen(false);
       }, 2000); // 2 seconds delay
@@ -66,11 +65,6 @@ const CreateLinkPage: React.FC = (props) => {
       console.error('Error:', error);
       setModalMessage('Failed to create the link.');
       setModalStatus('error');
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Failed to create the link.',
-      });
     }
   };
 

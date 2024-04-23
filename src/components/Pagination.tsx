@@ -47,7 +47,7 @@ const PageSelect: React.FC<PageSelectProps> = ({
     }
 
     return (
-        <div className="flex flex-wrap gap-5 items-center justify-center md:justify-between lg:mt-10 mb-24">
+        <div className="flex flex-wrap gap-5 items-center justify-center md:justify-between">
             <div className="flex flex-wrap space-x-2 justify-center drop-shadow-lg">
                 <button
                     className="px-1.5 py-1 md:px-3 md:py-2 rounded bg-gray-200 hover:bg-purple-300 text-gray-700 text-xs md:text-sm cursor-pointer"
