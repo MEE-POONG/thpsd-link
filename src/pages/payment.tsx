@@ -1,16 +1,35 @@
 import RootLayout from "@/components/RootLayout";
 import { useEffect, useState } from "react";
-import IndexPage from './index';
-import QRCodeDisplay from "@/container/QRCodeDisplay";
+import QRCodeDisplay from "@/components/Payment/QRCodeDisplay";
 import { useRouter } from "next/router";
 import { PackageData } from "@prisma/client";
 import axios from "axios";
+
+const ModalSuccess: React.FC<{ onCancel: () => void; onConfirm: () => void }> = ({ onCancel, onConfirm }) => {
+    return (
+        <div className="fixed inset-0 z-50 overflow-auto bg-smoke-light flex">
+            <div className="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg">
+                <p>ยืนยันการชำระเงิน</p>
+                <div className="flex justify-end gap-4">
+                    <button onClick={onCancel} className="bg-gray-200 text-black p-2 rounded">
+                        Cancel
+                    </button>
+                    <button onClick={onConfirm} className="bg-green-500 text-white p-2 rounded">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 
 const Payment: React.FC = (props) => {
 
     const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
     const router = useRouter();
     const [error, setError] = useState<string | null>(null);
+    const [showModal, setShowModal] = useState(false);
 
 
     useEffect(() => {
@@ -60,11 +79,30 @@ const Payment: React.FC = (props) => {
         setShowCardDetails(!showCardDetails);
     };
 
+    // When checkout button is clicked, show the modal
+    const handleCheckout = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        setShowModal(true);
+    };
+
+    // When the modal confirm button is clicked, redirect to the management page
+    const handleConfirmPayment = () => {
+        setShowModal(false);
+        // Here, you would handle the payment confirmation and then redirect
+        router.push('/management');
+    };
+
+    // When the modal cancel button is clicked, just hide the modal
+    const handleCancel = () => {
+        setShowModal(false);
+    };
+
+
     const buttonClass = (method: string) =>
         `w-full p-3 rounded-md shadow-lg ${method === selectedPaymentMethod ? 'border-2 border-purple-500' : 'bg-gray-200'}`;
 
     // Array of countries for the dropdown
-    const countries = ["Thailand", "United States","Singapore", "Canada", "United Kingdom", "Australia", "Germany", "Japan", "Vietnam", "Kenya", "Korea", "Laos"];
+    const countries = ["Thailand", "United States", "Singapore", "Canada", "United Kingdom", "Australia", "Germany", "Japan", "Vietnam", "Kenya", "Korea", "Laos"];
 
     return (
         <RootLayout>
@@ -76,7 +114,7 @@ const Payment: React.FC = (props) => {
                         <div className="lg:grid grid-cols-12">
                             <div className="col-span-8 p-6">
                                 <p className="text-2xl font-bold mb-5">Package: {selectedPackage.name}</p>
-                                
+
                                 <hr />
                                 <div className="mt-5">
                                     <i className="text-gray-400 mb-2">payment</i>
@@ -199,7 +237,9 @@ const Payment: React.FC = (props) => {
                                         </div>
                                         {/* Submit button */}
                                         <div className="flex items-center justify-between">
-                                            <button className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                            <button
+                                                onClick={handleCheckout}
+                                                className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                                                 Checkout
                                             </button>
                                         </div>
@@ -229,6 +269,8 @@ const Payment: React.FC = (props) => {
                     )}
                 </div>
             </div>
+            {/* Show the ModalSuccess component based on showModal state */ }
+            {showModal && <ModalSuccess onCancel={handleCancel} onConfirm={handleConfirmPayment} />}
         </RootLayout>
     )
 }
