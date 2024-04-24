@@ -1,9 +1,9 @@
 import RootLayout from "@/components/RootLayout";
 import TrialShow from "@/container/All/TrialShow";
-import { PriceData } from "@/data/default";
 import { PackageData } from "@prisma/client";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
@@ -12,7 +12,7 @@ interface PricingData {
 }
 
 const PricingPage: React.FC = (props) => {
-
+    const router = useRouter();
 
     const [packagesData, setPackagesData] = useState<PackageData[]>([]);
     const [error, setError] = useState<string | null>(null);
@@ -84,15 +84,9 @@ const PricingPage: React.FC = (props) => {
                                         <FaCheckCircle />
                                         {packages.setQR} QR Code/เดือน
                                     </li>
-                                    {/* {packages.obtainedThree ?
-                        <li className="mb-3 flex items-center gap-2 ">
-                          <FaCheckCircle />
-                          ระบบจัดการ
-                        </li>
-                        : ''} */}
                                 </ul>
 
-                                <Link href='/payment' className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
+                                <Link href={`/payment?id=${packages.id}`} className="py-2 px-4 block w-full bg-black hover:bg-white hover:text-black border-2 border-black text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
                                     เลือกแผนนี้
                                 </Link>
                             </div>

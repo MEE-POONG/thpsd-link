@@ -79,12 +79,6 @@ const UpgradePage: React.FC = (props) => {
                         <FaCheckCircle />
                         {packages.setQR} QR Code/เดือน
                       </li>
-                      {/* {packages.obtainedThree ?
-                        <li className="mb-3 flex items-center gap-2 ">
-                          <FaCheckCircle />
-                          ระบบจัดการ
-                        </li>
-                        : ''} */}
                     </ul>
                
                   <Link href='' className="py-2 px-4 block w-full bg-purple-700 hover:bg-white hover:text-purple-700 border-2 border-purple-700 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
