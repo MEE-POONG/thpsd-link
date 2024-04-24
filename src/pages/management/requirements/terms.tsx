@@ -6,8 +6,8 @@ const IndexPage: React.FC = (props) => {
   return (
     <RootLayoutAccount>
       <div className="requirements container px-6 mx-auto mt-6 grid">
-        <div className='bg-slate-200 p-5 rounded-sm shadow-lg lg:w-4/6'>
-          <h2>Terms / เงื่อนไขการใช้งาน</h2>
+        <div className='bg-slate-200 p-5 lg:p-10 rounded-md shadow-lg lg:w-4/6 text-xs lg:text-sm'>
+          <h2 className='font-bold mb-2 text-purple-700 text-base'>Terms / เงื่อนไขการใช้งาน</h2>
           <div>
             <p>1. การยอมรับเงื่อนไขการให้บริการ</p>
             <ul className='list-none ml-3'>
