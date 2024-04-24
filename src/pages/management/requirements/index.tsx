@@ -14,7 +14,7 @@ const RulesPage: React.FC = (props) => {
       <div className='bg-slate-200 p-5 lg:p-10 rounded-md shadow-lg lg:w-4/6 text-xs lg:text-sm'>
           <h2 className='font-bold mb-2 text-purple-700 text-base'>กฎเกณฑ์การใช้งาน</h2>
           <p className='indent-7'>การกำหนดกฎเกณฑ์การใช้งานสำหรับระบบย่อลิงค์เป็นสิ่งจำเป็นเพื่อรักษามาตรฐานการใช้งานให้เป็นไปอย่างเหมาะสมและปลอดภัย นี่คือรายการกฎเกณฑ์การใช้งานที่ควรพิจารณาเพื่อรักษามาตรฐานและป้องกันการใช้งานที่ไม่เหมาะสม:</p>
-          <ul className='list-decimal list-inside indent-7 text-purple-700 text-lg'>
+          <ul className='list-decimal list-inside indent-7'>
             <li>
               ห้ามโฆษณาหลอกลวง: ผู้ใช้ต้องไม่ใช้ลิงค์ย่อเพื่อส่งเสริมหรือโฆษณาผลิตภัณฑ์หรือบริการที่เป็นการหลอกลวงหรือทำให้เข้าใจผิด
             </li>
