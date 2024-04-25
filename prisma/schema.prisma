@@ -26,6 +26,7 @@ model UserData {
   PaymentData   PaymentData[]
   AdminData     AdminData?
   URLsData      URLsData[]
+  PackageData   PackageData[]
 }
 
 model AdminData {
@@ -113,6 +114,8 @@ model PackageData {
   updateAt    DateTime      @updatedAt
   updateBy    String
   PaymentData PaymentData[]
+  UserData    UserData?     @relation(fields: [userDataId], references: [id])
+  userDataId  String?       @db.ObjectId
 }
 
 model PaymentData {
@@ -120,6 +123,8 @@ model PaymentData {
   purchaseDate DateTime
   buyDay       DateTime
   payDay       DateTime
+  qrpay        String
+  creditpay    String
   createdAt    DateTime     @default(now())
   createdBy    String
   updateAt     DateTime     @updatedAt

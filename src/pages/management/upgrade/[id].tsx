@@ -1,19 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import RootLayoutAccount from '@/components/RootLayoutAcc';
-import { FaCheckCircle } from 'react-icons/fa';
+import { PackageData } from '@prisma/client';
+import axios from 'axios';
 import Link from 'next/link';
-import { PriceData } from '@/data/default';
 
-const SelectPackagePage: React.FC = () => {
+const SelectPackagePage: React.FC = (props) => {
+  const [packageData, setPackageData] = useState<PackageData | null>(null);
   const router = useRouter();
-  const { id } = router.query; // Extract the id from the URL
-  const packageData = PriceData.find((pkg) => pkg.id === id);
+  const { id } = router.query;
 
   useEffect(() => {
-    console.log("packageData : ", packageData);
+    if (typeof id === 'string') { // id is expected to be a string
+      axios.get<PackageData>(`/api/package/${id}`)
+        .then(response => {
+          setPackageData(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching package data:', error);
+          // Handle error
+        });
+    }
+  }, [id]);
 
-  }, [packageData]);
+  if (!packageData) {
+    return <div>Loading...</div>; // or some loading spinner
+  }
+
 
   if (!packageData) {
     return (
@@ -37,16 +50,16 @@ const SelectPackagePage: React.FC = () => {
             <div className='w-7/12 mx-2 p-2'>
               <div className="max-w-screen-md mx-auto mb-8 lg:mb-12">
                 <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                  เลือกแพ็คเกจ {packageData?.title}
+                  เลือกแพ็คเกจ
                 </h2>
                 <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-                  {packageData?.detail}
+
                 </p>
               </div>
               <ul className="list-disc">
-                <li>สร้างลิงค์ {packageData?.addOn?.linkMax}</li>
-                {packageData?.addOn?.backoffice ? <li>ระบบจัดการ</li> : null}
-                {packageData?.addOn?.qr !== '' ? <li>ระบบจัดการ</li> : null}
+                <li>สร้างลิงค์ </li>
+                {/* {packageData?.addOn?.backoffice ? <li>ระบบจัดการ</li> : null}
+                {packageData?.addOn?.qr !== '' ? <li>ระบบจัดการ</li> : null} */}
 
               </ul>
             </div>
@@ -54,12 +67,12 @@ const SelectPackagePage: React.FC = () => {
               <div className="max-w-screen-md mx-auto mb-8 lg:mb-12">
                 <p>สรุปรายการแพ็คเกจ</p>
                 <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                  แพ็คเกจ {packageData?.title}
+                  แพ็คเกจ
                 </h2>
                 {/* ราคา */}
                 <div className="flex flex-wrap">
                   <h1 className="flex-auto text-lg font-semibold text-slate-900">
-                    Package {packageData?.title}
+                    Package
                   </h1>
                   <div className="text-lg font-semibold text-slate-500">
                     $110.00
@@ -93,9 +106,10 @@ const SelectPackagePage: React.FC = () => {
                   </Link>
                 </label>
               </div>
-              <div>
-                <button className='w-full bg-purple-700 p-4 text-white'>
-                  ยืนยันการสั่งซื้อ
+              <div className='mt-10'>
+                <button 
+                  className='w-full bg-purple-700 p-3 text-white'>
+                  <Link href={`/payment`}>ยืนยัน</Link>
                 </button>
               </div>
             </div>

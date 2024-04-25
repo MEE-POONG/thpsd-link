@@ -4,6 +4,7 @@ import QRCodeDisplay from "@/components/Payment/QRCodeDisplay";
 import { useRouter } from "next/router";
 import { PackageData } from "@prisma/client";
 import axios from "axios";
+import Link from "next/link";
 
 const ModalSuccess: React.FC<{ onCancel: () => void; onConfirm: () => void }> = ({ onCancel, onConfirm }) => {
     return (
@@ -246,6 +247,14 @@ const Payment: React.FC = (props) => {
                                     </form>
 
                                 </div>
+                                <div className="flex items-center mt-10 ">
+                                    <input id="default-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                    <label htmlFor="default-checkbox" className="ml-2 text-sm font-medium text-black dark:text-gray-300">ข้าพเจ้ายอมรับ
+                                        <Link href="/management/requirements/terms" className="underline hover:underline" target="_blank" >
+                                            ข้อกำหนดการใช้บริการ
+                                        </Link>
+                                    </label>
+                                </div>
                             </div>
 
                             {/* Total */}
@@ -262,14 +271,15 @@ const Payment: React.FC = (props) => {
                                     <div className="col-span-2">
                                         <p className="text-right">{selectedPackage.price}</p>
                                     </div>
-                                </div>
 
+                                </div>
+                                
                             </div>
                         </div>
                     )}
                 </div>
             </div>
-            {/* Show the ModalSuccess component based on showModal state */ }
+            {/* Show the ModalSuccess component based on showModal state */}
             {showModal && <ModalSuccess onCancel={handleCancel} onConfirm={handleConfirmPayment} />}
         </RootLayout>
     )

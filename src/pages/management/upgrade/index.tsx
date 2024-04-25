@@ -69,20 +69,21 @@ const UpgradePage: React.FC = (props) => {
                   <p className="mt-4 text-xs text-gray-600 dark:text-gray-100">
 
                   </p>
-                 
-                    <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
-                      <li className="mb-3 flex items-center gap-2 ">
-                        <FaCheckCircle />
-                        {packages.setlink} ลิงค์/เดือน
-                      </li>
-                      <li className="mb-3 flex items-center gap-2 ">
-                        <FaCheckCircle />
-                        {packages.setQR} QR Code/เดือน
-                      </li>
-                    </ul>
-               
-                  <Link href='' className="py-2 px-4 block w-full bg-purple-700 hover:bg-white hover:text-purple-700 border-2 border-purple-700 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
-                    เลือกแผนนี้
+
+                  <ul className="w-full mt-6 mb-6 text-sm text-gray-600 dark:text-gray-100">
+                    <li className="mb-3 flex items-center gap-2 ">
+                      <FaCheckCircle />
+                      {packages.setlink} ลิงค์/เดือน
+                    </li>
+                    <li className="mb-3 flex items-center gap-2 ">
+                      <FaCheckCircle />
+                      {packages.setQR} QR Code/เดือน
+                    </li>
+                  </ul>
+
+                  <Link  href={`/management/upgrade/${packages.id}`} passHref
+                    className="py-2 px-4 block w-full bg-purple-700 hover:bg-white hover:text-purple-700 border-2 border-purple-700 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg ">
+                    ปรับแผน
                   </Link>
                 </div>
               ))}
