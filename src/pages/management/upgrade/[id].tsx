@@ -4,6 +4,7 @@ import RootLayoutAccount from '@/components/RootLayoutAcc';
 import { PackageData } from '@prisma/client';
 import axios from 'axios';
 import Link from 'next/link';
+import { FaArrowLeft } from "react-icons/fa";
 
 const SelectPackagePage: React.FC = (props) => {
   const [packageData, setPackageData] = useState<PackageData | null>(null);
@@ -45,37 +46,34 @@ const SelectPackagePage: React.FC = (props) => {
   return (
     <RootLayoutAccount>
       <div className="upgrade container px-6 mx-auto mt-6 grid">
-        <div className="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <Link href='/management/upgrade' className='flex items-center text-sm gap-2 mb-5'><FaArrowLeft />Back</Link>
+        <div className="min-w-0 p-5 bg-white rounded-lg shadow-xs border">
           <div className="max-w-screen-xl mx-auto flex">
             <div className='w-7/12 mx-2 p-2'>
               <div className="max-w-screen-md mx-auto mb-8 lg:mb-12">
                 <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                  เลือกแพ็คเกจ
+                  เลือกแพ็คเกจ  {packageData?.name}
                 </h2>
                 <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
 
                 </p>
               </div>
               <ul className="list-disc">
-                <li>สร้างลิงค์ </li>
-                {/* {packageData?.addOn?.backoffice ? <li>ระบบจัดการ</li> : null}
-                {packageData?.addOn?.qr !== '' ? <li>ระบบจัดการ</li> : null} */}
-
               </ul>
             </div>
             <div className='w-5/12 mx-2 p-2'>
               <div className="max-w-screen-md mx-auto mb-8 lg:mb-12">
                 <p>สรุปรายการแพ็คเกจ</p>
                 <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                  แพ็คเกจ
+                  {packageData?.name}
                 </h2>
                 {/* ราคา */}
                 <div className="flex flex-wrap">
                   <h1 className="flex-auto text-lg font-semibold text-slate-900">
-                    Package
+                    {packageData?.name}
                   </h1>
                   <div className="text-lg font-semibold text-slate-500">
-                    $110.00
+                    ${packageData?.price}
                   </div>
                 </div>
                 {/* ส่วนลด */}
@@ -107,7 +105,7 @@ const SelectPackagePage: React.FC = (props) => {
                 </label>
               </div>
               <div className='mt-10'>
-                <button 
+                <button
                   className='w-full bg-purple-700 p-3 text-white'>
                   <Link href={`/payment`}>ยืนยัน</Link>
                 </button>
